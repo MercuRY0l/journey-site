@@ -58,6 +58,7 @@ async def create_user(user_data: UserCreate, db: Session = Depends(get_db)):
         db.rollback()
         raise HTTPException(status_code=400, detail=f"Не удалось подключитьсяк бд: {e}")
     
-        
+
 @router.post('/login')
 async def login_for_accsess_token(form_data: Annotated[OAuth2PasswordRequestForm, Depends()],) -> Token:
+    pass
