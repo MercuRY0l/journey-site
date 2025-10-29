@@ -7,6 +7,8 @@ from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from typing import Annotated
 from tokens import Token
 
+from datetime import timedelta
+from tokens import SecurityConfig, create_access_token, create_refresh_token, verify_token
 
 router = APIRouter(prefix="/auth", tags=["authentification"])
 
@@ -27,21 +29,23 @@ def get_db():
     finally:
         db.close()
         
-def hash_pass(user_data : UserModel):
+def hash_pass(password: str) -> str:
     ph = PasswordHasher()
-    hashed_password = ph.hash(user_data.password)
+    hashed_password = ph.hash(password)
     return hashed_password
 
 @router.post('/register')
 async def create_user(user_data: UserCreate, db: Session = Depends(get_db)):
     try:
+        
         if UserModel.user_in_database(db, user_data.username):
             raise HTTPException(status_code=400, detail="Пользователь уже существует!")
-        
+            
+            
         user = UserModel.create_user(
             db,
             username = user_data.username,
-            password = hash_pass(user_data),
+            password = hash_pass(user_data.password),
             email = user_data.email,
 
         )
@@ -60,5 +64,38 @@ async def create_user(user_data: UserCreate, db: Session = Depends(get_db)):
     
 
 @router.post('/login')
-async def login_for_accsess_token(form_data: Annotated[OAuth2PasswordRequestForm, Depends()],) -> Token:
-    pass
+async def login_for_accsess_token(form_data: Annotated[OAuth2PasswordRequestForm, Depends()], db: Session = Depends(get_db)) -> Token:
+    try:
+        
+        
+        user = UserModel.authenticate_user(db, form_data.username, form_data.password)
+        print(user)
+        
+        if not user:
+            raise HTTPException(status_code=401, detail="Пользователя не существует!")
+        
+        token_data = {
+            "username" : user.username,
+            "user_id" : user.id,
+            "email" : user.email
+        }
+        
+        access_token_expires = timedelta(minutes=SecurityConfig.ACCESS_TOKEN_EXPIRE)
+        access_token = create_access_token(
+            data = token_data,
+            expired_delta=access_token_expires
+        )
+        
+        refresh_token = create_refresh_token(data = token_data)
+        
+        return Token(
+            access_token=access_token,
+            token_type = "bearer",
+            refresh_token = refresh_token
+        )
+    
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Ошибка при аутентификации:{str(e)}"
+        )

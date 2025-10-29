@@ -3,6 +3,8 @@ from sqlalchemy.orm import sessionmaker, declarative_base, Session
 from sqlalchemy import Column,String,Integer,DateTime
 from sqlalchemy import create_engine
 from sqlalchemy.sql import func
+from argon2 import PasswordHasher
+from argon2.exceptions import VerifyMismatchError
 
 Base = declarative_base()
 
@@ -25,11 +27,32 @@ class UserModel(Base):
         return user
     
     @classmethod
+    def get_user_by_name(cls, db, username:str):
+        return db.query(cls).filter(cls.username == username).first()
+        
+    @classmethod
     def user_in_database(cls, db: Session, username: str) -> bool:
-        user = db.query(UserModel).filter(UserModel.username == username).first()
+        user = cls.get_user_by_name(db, username)
         return user is not None
     
+    @classmethod
+    def authenticate_user(cls, db: Session, username : str, password : str):
+        user = cls.get_user_by_name(db, username)
+        if not user:
+            return False
         
+        ph = PasswordHasher()
+        try:
+            ph.verify(user.password, password)
+            return user
+        
+        except VerifyMismatchError:
+            return False
+        
+        except Exception as e:
+            return False    
+        
+    
     
 engine = create_engine("mssql+pyodbc://sa:mnxjqqjxlJQXI!Cx@THUNDEROBOT\\SQLEXPRESS/fastapi_users?driver=ODBC+Driver+17+for+SQL+Server")
 SessionLocal = sessionmaker(bind = engine)
