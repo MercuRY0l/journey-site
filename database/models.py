@@ -28,7 +28,9 @@ class UserModel(Base):
     def user_in_database(cls, db: Session, username: str) -> bool:
         user = db.query(UserModel).filter(UserModel.username == username).first()
         return user is not None
-
+    
+        
+    
 engine = create_engine("mssql+pyodbc://sa:mnxjqqjxlJQXI!Cx@THUNDEROBOT\\SQLEXPRESS/fastapi_users?driver=ODBC+Driver+17+for+SQL+Server")
 SessionLocal = sessionmaker(bind = engine)
 
