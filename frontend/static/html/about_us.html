@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>О нас | Wild Karelia</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="/static/css/about_us.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <script>
+  $(document).ready(function() {
+    $("a[href*='#reviews']").click(function(event) {
+      event.preventDefault();
+      $('html, body').stop().animate({ scrollTop: $('#wb_reviews').offset().top - 88 }, 600);
+    });
+    $("a[href*='#LayoutGrid2']").click(function(event) {
+      event.preventDefault();
+      $('html, body').stop().animate({ scrollTop: $('#wb_LayoutGrid2').offset().top - 88 }, 600);
+    });
+    $("a[href*='#header']").click(function(event) {
+      event.preventDefault();
+      $('html, body').stop().animate({ scrollTop: $('#wb_header').offset().top }, 600);
+    });
+  });
+  </script>
+</head>
+
+<body>
+ 
+  <div id="wb_header">
+    <div id="header">
+      <div class="col-1">
+        <div id="wb_Image3">
+          <a href="./main_page.html">
+            <img src="/static/images/logo_img.png" id="Image3" alt="Wild Karelia" width="93" height="93">
+          </a>
+        </div>
+      </div>
+
+      <div class="col-2">
+        <div id="wb_LayoutGrid3">
+          <div id="LayoutGrid3">
+            <div class="col-1">
+              <div id="wb_ResponsiveMenu1">
+                <label class="toggle" for="ResponsiveMenu1-submenu" id="ResponsiveMenu1-title">
+                  Меню
+                  <span id="ResponsiveMenu1-icon"><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span></span>
+                </label>
+                <input type="checkbox" id="ResponsiveMenu1-submenu">
+                <ul class="ResponsiveMenu1" id="ResponsiveMenu1" role="menu">
+                  <li role="menuitem"><a href="./main_page.html">Главная</a></li>
+                  <li role="menuitem">
+                    <label for="ResponsiveMenu1-submenu-0" class="toggle">Услуги<span class="arrow-down"></span></label>
+                    <a href="#">Услуги<span class="arrow-down"></span></a>
+                    <input type="checkbox" id="ResponsiveMenu1-submenu-0">
+                    <ul role="menu">
+                      <li role="menuitem"><a href="./fishing_page.html">Рыбалка</a></li>
+                      <li role="menuitem"><a href="./hunting_page.html">Охота</a></li>
+                    </ul>
+                  </li>
+                  <li role="menuitem"><a href="./about_us.html" class="active">О нас</a></li>
+                  <li role="menuitem"><a href="#contacts_main_page">Контакты</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="col-2">
+              <div id="wb_LayoutGrid4">
+                <div id="LayoutGrid4">
+                  <div class="row">
+                    <div class="col-1">
+                      <div id="wb_Icon1">
+                        <div id="Icon1"><i class="Icon1"></i></div>
+                      </div>
+                    </div>
+                    <div class="col-2">
+                      <a id="Button1" href="./auth_page.html">Войти / Зарегистрироваться</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div id="wb_reviews">
+    <div id="reviews">
+      <div class="col-1">
+        <div class="col-1-padding">
+          <div id="wb_LayoutGrid1">
+            <div id="LayoutGrid1">
+              <div class="row">
+                <div class="col-1">
+                  <div id="wb_Text2">
+                    <div>
+                      <span style="color:#EEB519;font-family:Arial;font-size:22px;"><strong>О нас</strong></span>
+                    </div>
+                  </div>
+                  <div id="wb_Text1">
+                    <div>
+                      <span style="color:#FFFFFF;font-family:Arial;font-size:17px;">
+                        Мы — команда профессионалов, которая любит охоту и рыбалку так же сильно, как и вы.
+                        <br><br>
+                        <strong>"Wild Karelia"</strong> существует для того, чтобы каждый охотник и рыболов смог испытать радость активного отдыха в Карелии.
+                        <br><br>
+                        Мы организуем безопасные и увлекательные туры, полностью погружающие в атмосферу дикой природы. Наши гиды — настоящие эксперты с многолетним опытом, которые знают лес, озёра и повадки животных и рыбы лучше любого путеводителя.
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-2">
+                  <div id="wb_Image1">
+                    <img src="/static/images/about_us_img1.jpg" id="Image1" alt="О нас Wild Karelia">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="wb_LayoutGrid2">
+    <div id="LayoutGrid2">
+      <div class="col-1">
+        <div class="col-1-padding">
+          <div id="wb_LayoutGrid5">
+            <div id="LayoutGrid5">
+              <div class="row">
+                <div class="col-1">
+                  <div id="wb_Text4">
+                    <div>
+                      <span style="color:#EEB519;font-family:Arial;font-size:22px;"><strong>Отзывы наших клиентов</strong></span>
+                    </div>
+                  </div>
+                  <div id="wb_Text3">
+                    <div>
+                      <span style="color:#FFFFFF;font-family:Arial;font-size:17px;">
+                        Иван П., Москва<br>
+                        “Поразительное место! Природа Карелии завораживает. Гиды невероятно опытные — охота и рыбалка прошли просто идеально.”
+                        <br><br>
+                        Мария С., Санкт-Петербург<br>
+                        “Это был мой первый тур на север, и я осталась в полном восторге. Проживание уютное, еда вкусная, а рыбалка на озере — просто незабываемая!”
+                        <br><br>
+                        Алексей К., Новосибирск<br>
+                        “Невероятный сервис и профессионализм. Всё от трансфера до рыбалки и охоты продумано до мелочей. Обязательно вернусь!”
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

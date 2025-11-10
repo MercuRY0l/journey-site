@@ -34,6 +34,16 @@ def hash_pass(password: str) -> str:
     hashed_password = ph.hash(password)
     return hashed_password
 
+
+
+@router.get("/")
+def root():
+    try:
+        with open("frontend/static/html/main_page.html") as f:
+            return f.read()    
+    except Exception as e:
+        print(e)
+
 @router.post('/register')
 async def create_user(user_data: UserCreate, db: Session = Depends(get_db)):
     try:
