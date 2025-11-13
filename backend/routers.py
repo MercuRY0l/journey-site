@@ -1,4 +1,6 @@
-from fastapi import HTTPException, APIRouter, Depends
+from fastapi import HTTPException, APIRouter, Depends, Request, Form
+from fastapi.responses import RedirectResponse
+from fastapi.templating import Jinja2Templates
 from sqlalchemy.orm import Session
 from database.models import UserModel, SessionLocal
 from pydantic import BaseModel
@@ -7,10 +9,15 @@ from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from typing import Annotated
 from tokens import Token
 
+from starlette.status import HTTP_302_FOUND
+
 from datetime import timedelta
 from tokens import SecurityConfig, create_access_token, create_refresh_token, verify_token
 
-router = APIRouter(prefix="/auth", tags=["authentification"])
+router = APIRouter()
+
+templates = Jinja2Templates(directory="C:/Users/udgit/Documents/site_project_fastapi/frontend/static/html")
+
 
 class UserCreate(BaseModel):
     username: str
@@ -37,52 +44,43 @@ def hash_pass(password: str) -> str:
 
 
 @router.get("/")
-def root():
-    try:
-        with open("frontend/static/html/main_page.html") as f:
-            return f.read()    
-    except Exception as e:
-        print(e)
+def root(request: Request):
+    return templates.TemplateResponse("main_page.html", {"request": request})
 
-@router.post('/register')
-async def create_user(user_data: UserCreate, db: Session = Depends(get_db)):
+@router.get("/fishing")
+def root(request: Request):
+    return templates.TemplateResponse("fishing_page.html", {"request" : request})
+
+@router.get("/hunting")
+def root(request: Request):
+    return templates.TemplateResponse("hunting_page.html", {"request" : request})
+
+@router.get("/about")
+def root(request: Request):
+    return templates.TemplateResponse("about_us.html", {"request" : request})
+
+@router.get('/auth/register')
+async def register_get(request: Request):
+    return templates.TemplateResponse("register.html", {'request' : request})
+
+@router.get('/auth/login')
+async def login_get(request:Request):
+    return templates.TemplateResponse("login.html", {'request' : request})
+
+@router.post('/auth/register')
+async def create_user(request : Request, username: str = Form(...), email:str = Form(), password: str = Form(), db: Session = Depends(get_db)):
     try:
-        
-        if UserModel.user_in_database(db, user_data.username):
+        if UserModel.user_in_database(db, username):
             raise HTTPException(status_code=400, detail="Пользователь уже существует!")
             
             
         user = UserModel.create_user(
             db,
-            username = user_data.username,
-            password = hash_pass(user_data.password),
-            email = user_data.email,
+            username = username,
+            password = hash_pass(password),
+            email = email,
 
         )
-        
-        
-        response_data =  {"message" : "Пользователь успешно зарегистрирован!", "user_id" : user.id}
-        return response_data
-          
-    
-    except HTTPException:
-        db.rollback()
-        raise
-    except Exception as e:
-        db.rollback()
-        raise HTTPException(status_code=400, detail=f"Не удалось подключитьсяк бд: {e}")
-    
-
-@router.post('/login')
-async def login_for_accsess_token(form_data: Annotated[OAuth2PasswordRequestForm, Depends()], db: Session = Depends(get_db)) -> Token:
-    try:
-        
-        
-        user = UserModel.authenticate_user(db, form_data.username, form_data.password)
-        print(user)
-        
-        if not user:
-            raise HTTPException(status_code=401, detail="Пользователя не существует!")
         
         token_data = {
             "username" : user.username,
@@ -93,17 +91,62 @@ async def login_for_accsess_token(form_data: Annotated[OAuth2PasswordRequestForm
         access_token_expires = timedelta(minutes=SecurityConfig.ACCESS_TOKEN_EXPIRE)
         access_token = create_access_token(
             data = token_data,
-            expired_delta=access_token_expires
+            expires_delta=access_token_expires
+        )
+        
+        response = RedirectResponse(url = "/", status_code=HTTP_302_FOUND)
+        response.set_cookie(
+            key = 'access_token',
+            value=access_token,
+            httponly=True,
+            secure=False
+        )
+        
+        
+        return response
+        
+    
+    except HTTPException:
+        raise
+    except Exception as e:
+        db.rollback()
+        raise HTTPException(status_code=400, detail=f"Не удалось подключитьсяк бд: {e}")
+    
+
+@router.post('/auth/login')
+async def login_for_accsess_token(username:str = Form(), password: str = Form(), db: Session = Depends(get_db)):
+    try:
+        
+        
+        user = UserModel.authenticate_user(db, username, password)
+        print(user)
+        
+        if not user:
+            raise HTTPException(status_code=401, detail="Пользователя не существует!")
+        
+        token_data = {
+            "username" : username,
+            "user_id" : user.id,
+            "email" : user.email
+        }
+        
+        access_token_expires = timedelta(minutes=SecurityConfig.ACCESS_TOKEN_EXPIRE)
+        access_token = create_access_token(
+            data = token_data,
+            expires_delta=access_token_expires
         )
         
         refresh_token = create_refresh_token(data = token_data)
         
-        return Token(
-            access_token=access_token,
-            token_type = "bearer",
-            refresh_token = refresh_token
+        response = RedirectResponse(url='/', status_code=HTTP_302_FOUND)    
+        response.set_cookie(
+            key = 'access',
+            value = access_token,
+            httponly=True,
+            secure=False
         )
-    
+        return response
+        
     except Exception as e:
         raise HTTPException(
             status_code=500,

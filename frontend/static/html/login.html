@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Авторизация</title>
-<link rel="stylesheet" href="style.css">
+
 <style>
   body {
     display: flex;
@@ -63,15 +63,16 @@
 </style>
 </head>
 <body>
+<script src="/static/js/login.js"></script>
 <div class="auth-container wb-theme-content">
   <h2>Вход</h2>
-  <form>
-    <input type="email" placeholder="Email" required>
-    <input type="password" placeholder="Пароль" required>
+  <form action="/auth/login" method="post">
+    <input type="text" name="username" placeholder="Логин" required>
+    <input type="password" name="password" placeholder="Пароль" required>
     <button type="submit" class="wb-theme-button">Войти</button>
   </form>
   <div class="auth-footer">
-    Нет аккаунта? <a href="/static/html/register.html">Зарегистрироваться</a>
+    Нет аккаунта? <a href="./register">Зарегистрироваться</a>
   </div>
 </div>
 </body>

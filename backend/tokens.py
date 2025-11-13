@@ -20,10 +20,10 @@ class Token(BaseModel):
     refresh_token : Optional[str] = None
     
     
-def create_access_token(data: dict, expired_delta : timedelta | None = None):
+def create_access_token(data: dict, expires_delta : timedelta | None = None):
     to_encode = data.copy()
-    if expired_delta:
-        expire = datetime.now(timezone.utc) + expired_delta
+    if expires_delta:
+        expire = datetime.now(timezone.utc) + expires_delta
     else:
         expire = datetime.now(timezone.utc) + timedelta(minutes=15)
     
