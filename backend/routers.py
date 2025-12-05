@@ -9,6 +9,7 @@ from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from typing import Annotated
 from tokens import Token
 
+
 from starlette.status import HTTP_302_FOUND
 
 from datetime import timedelta
@@ -16,8 +17,9 @@ from tokens import SecurityConfig, create_access_token, create_refresh_token, ve
 
 router = APIRouter()
 
-templates = Jinja2Templates(directory="C:/Users/udgit/Documents/site_project_fastapi/frontend/static/html")
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
+templates = Jinja2Templates(directory="C:/Users/udgit/Documents/site_project_fastapi/frontend/static/html")
 
 class UserCreate(BaseModel):
     username: str
@@ -80,7 +82,7 @@ async def create_user(request : Request, username: str = Form(...), email:str = 
             password = hash_pass(password),
             email = email,
 
-        )
+        ) 
         
         token_data = {
             "username" : user.username,
@@ -152,3 +154,9 @@ async def login_for_accsess_token(username:str = Form(), password: str = Form(),
             status_code=500,
             detail=f"Ошибка при аутентификации:{str(e)}"
         )
+        
+@router.post('/auth/logout')
+async def logout(token : str = Depends(oauth2_scheme)):
+    pass
+    
+    

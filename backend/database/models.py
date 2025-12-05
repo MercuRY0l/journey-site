@@ -1,6 +1,6 @@
 
-from sqlalchemy.orm import sessionmaker, declarative_base, Session
-from sqlalchemy import Column,String,Integer,DateTime
+from sqlalchemy.orm import sessionmaker, declarative_base, Session, relationship
+from sqlalchemy import Column,String,Integer,DateTime, ForeignKey
 from sqlalchemy import create_engine
 from sqlalchemy.sql import func
 from argon2 import PasswordHasher
@@ -52,7 +52,37 @@ class UserModel(Base):
         except Exception as e:
             return False    
         
+
+class AuthTokensModel(Base):
+    __tablename__ = "AuthTokens"
     
+    id = Column("ID", Integer, primary_key=True, autoincrement=True)
+    user_id = Column("user_id", Integer, ForeignKey("Users.ID", ondelete = "CASCADE"), nullable=False)
+    refresh_token = Column(String(512), nullable=False, unique = True)
+    expires_at = Column(DateTime(timezone=True), nullable=False)
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
+    
+    user = relationship("UserModel", backref="auth_tokens")
+    
+    
+    def __repr__(self):
+        return f"<AuthToken(user_id={self.user_id}, expires_at={self.expires_at})>"
+     
+class BlackListTokensModel(Base):
+    __tablename__ = "BlackListTokens"
+    
+    id = Column("ID",Integer, primary_key=True, autoincrement=True)
+    token = Column(String(512), nullable=False)
+    token_type = Column(String(50), nullable=False)
+    user_id = Column(Integer, ForeignKey("Users.ID", ondelete="SET NULL"))
+    reason = Column(String, nullable=False)
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
+    expires_at = Column(DateTime(timezone=True), nullable=False)
+    
+    user = relationship("UserModel", backref="blacklist_tokens")
+    
+    def __repr__(self):
+        return f"<BlacklistedToken(user_id={self.user_id}, type={self.token_type}>"
     
 engine = create_engine("mssql+pyodbc://sa:mnxjqqjxlJQXI!Cx@THUNDEROBOT\\SQLEXPRESS/fastapi_users?driver=ODBC+Driver+17+for+SQL+Server")
 SessionLocal = sessionmaker(bind = engine)
