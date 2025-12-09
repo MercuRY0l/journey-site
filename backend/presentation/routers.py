@@ -17,22 +17,12 @@ from starlette.status import HTTP_302_FOUND
 
 from datetime import timedelta
 
-from backend.domain.services.tokens import SecurityConfig, create_access_token, create_refresh_token, verify_token
+from pydantic_models.user_create import UserCreate
+from pydantic_models.user_login import UserLogin
 
 router = APIRouter()
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 templates = Jinja2Templates(directory="C:/Users/udgit/Documents/site_project_fastapi/frontend/static/html")
-
-class UserCreate(BaseModel):
-    username : str
-    email: str
-    password: str
-    password_repeat:str
-    
-class UserLogin(BaseModel):
-    username: str
-    password: str
-    
    
 def get_db():
     db = SessionLocal()
