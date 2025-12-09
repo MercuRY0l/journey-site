@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from domain.models.blaclist_domain_model import BlacklistDomainModel
+from domain.models.blacklist_domain_model import BlacklistDomainModel
 class IBlacklistRepository(ABC):
     
     def __init__(self):
