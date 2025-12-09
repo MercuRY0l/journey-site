@@ -4,8 +4,8 @@ from fastapi import HTTPException
 from fastapi.responses import JSONResponse
 from fastapi.templating import Jinja2Templates
 
-from ...app.dto.register_dto import RegisterDTO
-from ...app.services.register_service import RegisterService
+from app.dto.register_dto import RegisterDTO
+from app.services.register_service import RegisterService
 
 from domain.services.user_service import UserModelService
 from domain.services.auth_tokens_service import AuthTokensModelService
@@ -18,6 +18,7 @@ templates = Jinja2Templates(directory="C:/Users/udgit/Documents/site_project_fas
 
 
 
+ 
 def get_reg_service():
     return RegisterService(
         db_user_service=UserModelService(),

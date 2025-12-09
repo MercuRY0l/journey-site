@@ -1,5 +1,5 @@
 
-from ...app.dto.register_dto import RegisterDTO
+from app.dto.register_dto import RegisterDTO
 
 from domain.services.user_service import UserModelService
 from domain.services.auth_tokens_service import AuthTokensModelService
@@ -10,7 +10,7 @@ from datetime import datetime, timezone, timedelta
 class RegisterService:
     
     def __init__(self,
-                 db_user_service : UserModelService,
+                 db_user_service : UserModelService, 
                  db_tokens_service : AuthTokensModelService,
                  hash_service : HashService,
                  jwt_service : JwtTokensService):

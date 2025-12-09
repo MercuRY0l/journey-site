@@ -1,11 +1,11 @@
 
-from ...app.dto.login_dto import LoginDTO
+from app.dto.login_dto import LoginDTO
 
-from ...domain.services.auth_tokens_service import AuthTokensModelService
-from ...domain.services.user_service import UserModelService
-from ...domain.services.blacklist_service import BlackListTokensModelService
-from ...domain.services.hash_service import HashService
-from ...domain.services.jwt_tokens_service import JwtTokensService
+from domain.services.auth_tokens_service import AuthTokensModelService
+from domain.services.user_service import UserModelService
+from domain.services.blacklist_service import BlackListTokensModelService
+from domain.services.hash_service import HashService
+from domain.services.jwt_tokens_service import JwtTokensService
 
 from datetime import datetime, timezone, timedelta
 class LoginService:

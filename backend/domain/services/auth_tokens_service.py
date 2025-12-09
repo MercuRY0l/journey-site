@@ -1,6 +1,6 @@
 from ..models.auth_tokens_domain_model import AuthTokensDomainModel
-from interfaces.auth_tokens_interface import IAuthTokensRepository
-from interfaces.hash_interface import IHashService
+from ..interfaces.auth_tokens_interface import IAuthTokensRepository
+from ..interfaces.hash_interface import IHashService
 class AuthTokensModelService:
     
     def __init__(self, repo: IAuthTokensRepository, hash_service:  IHashService):

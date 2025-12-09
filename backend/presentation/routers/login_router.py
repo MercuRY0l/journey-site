@@ -3,8 +3,8 @@ from fastapi.templating import Jinja2Templates
 from fastapi.exceptions import HTTPException
 from fastapi.responses import JSONResponse
 
-from ...app.dto.login_dto import LoginDTO
-from ...app.services.login_service import LoginService
+from app.dto.login_dto import LoginDTO
+from app.services.login_service import LoginService
 
 from domain.services.user_service import UserModelService
 from domain.services.auth_tokens_service import AuthTokensModelService

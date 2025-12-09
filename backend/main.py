@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
 from presentation.routers.login_router import loginRouter
+from presentation.routers.register_router import regRouter
 
 app = FastAPI()
 
@@ -12,6 +13,7 @@ origins = [
 ]
 
 app.include_router(loginRouter)
+app.include_router(regRouter)
 app.add_middleware(
     CORSMiddleware,
     allow_origins = origins,

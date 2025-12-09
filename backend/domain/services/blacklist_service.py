@@ -18,3 +18,5 @@ class BlackListTokensModelService:
 
     def find_blacklisted_by_token(self, token):
         return self.repo.find_blacklisted_by_token(token=token)
+    
+    
