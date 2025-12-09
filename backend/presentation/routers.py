@@ -17,7 +17,7 @@ from starlette.status import HTTP_302_FOUND
 
 from datetime import timedelta
 
-from tokens import SecurityConfig, create_access_token, create_refresh_token, verify_token
+from backend.domain.services.tokens import SecurityConfig, create_access_token, create_refresh_token, verify_token
 
 router = APIRouter()
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
