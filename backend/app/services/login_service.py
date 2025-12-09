@@ -7,6 +7,7 @@ from ...domain.services.blacklist_service import BlackListTokensModelService
 from ...domain.services.hash_service import HashService
 from ...domain.services.jwt_tokens_service import JwtTokensService
 
+from datetime import datetime, timezone, timedelta
 class LoginService:
     def __init__(self, db_user_service: UserModelService, 
                  db_tokens_service : AuthTokensModelService, 
@@ -34,7 +35,7 @@ class LoginService:
         refresh_token = tokens['refresh']
         hashed_refresh = self.hash_service(refresh_token)
         
-        self.db_tokens_service.create_token(user_id=user.id, refresh_token=hashed_refresh)
+        self.db_tokens_service.create_token(user_id=user.id, refresh_token=hashed_refresh, expires_at=datetime.now(timezone.utc) + timedelta(days=30))
         
         return {"message" : "User is aunthificate!"}
         

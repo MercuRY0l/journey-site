@@ -1,7 +1,8 @@
 from fastapi import FastAPI
-from presentation.routers.login_router import LoginRouter
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
+
+from presentation.routers.login_router import loginRouter
 
 app = FastAPI()
 
@@ -10,10 +11,7 @@ origins = [
     "http://localhost:3000",
 ]
 
-login_router = LoginRouter()
-
-
-app.include_router(login_router)
+app.include_router(loginRouter)
 app.add_middleware(
     CORSMiddleware,
     allow_origins = origins,

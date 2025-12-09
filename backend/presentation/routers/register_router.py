@@ -2,75 +2,55 @@
 from fastapi import Request, APIRouter, Depends
 from fastapi import HTTPException
 from fastapi.responses import JSONResponse
+from fastapi.templating import Jinja2Templates
 
-from infrastructure.models.user_model import UserModel
+from ...app.dto.register_dto import RegisterDTO
+from ...app.services.register_service import RegisterService
 
-from sqlalchemy.orm import Session
+from domain.services.user_service import UserModelService
+from domain.services.auth_tokens_service import AuthTokensModelService
+from domain.services.hash_service import HashService
+from domain.services.jwt_tokens_service import JwtTokensService
 
-from infrastructure.config.connector import SessionLocal
+regRouter = APIRouter()
 
-from pydantic import BaseModel
+templates = Jinja2Templates(directory="C:/Users/udgit/Documents/site_project_fastapi/frontend/static/html")
 
-from datetime import timedelta
 
-router = APIRouter()
 
-def get_db():
-    db = SessionLocal()
+def get_reg_service():
+    return RegisterService(
+        db_user_service=UserModelService(),
+        db_tokens_service=AuthTokensModelService(),
+        hash_service=HashService(),
+        jwt_service=JwtTokensService()
+    )
+
+@regRouter.get('/auth/register')
+async def register_get(request: Request):
+    return templates.TemplateResponse("register.html", {'request' : request})
+
+
+@regRouter.post('/auth/register')
+async def create_user(request : Request, reg_dto: RegisterDTO, service = Depends(get_reg_service)):
     try:
-        yield db
-    finally:
-        db.close()
-
-class UserCreate(BaseModel):
-    username: str
-    email : str
-    password : str
-    password_repeat : str
-
-@router.post('/auth/register')
-async def create_user(request : Request, user: UserCreate, db: Session = Depends(get_db)):
-    try:
-        if UserModel.user_in_database(db, user.username):
-            raise HTTPException(status_code=400, detail="Пользователь уже существует!")
         
-        try:
-            user_obj = UserModel.create_user(
-                db,
-                username = user.username,
-                password = hash_pass(user.password),
-                email = user.email,
-
-            ) 
-            
-        except Exception as e:
-            print("Ошибка создания пользователя:", e)
-            raise HTTPException(status_code=400, detail=f"Ошибка БД: {e}")
-        
-        token_data = {
-            "username" : user_obj.username,
-            "user_id" : user_obj.id,
-            "email" : user_obj.email
-        }
-        
-        access_token_expires = timedelta(minutes=SecurityConfig.ACCESS_TOKEN_EXPIRE)
-        access_token = create_access_token(
-            data = token_data,
-            expires_delta=access_token_expires
-        )
-        
-        response = JSONResponse({"success": True, "username": user_obj.username})
+        service.register(register_dto=reg_dto)
+    
+        response = JSONResponse({"success": True})
         response.set_cookie(
             key = 'access_token',
-            value=access_token,
+            value="access_token",
             httponly=True,
             secure=False
         )
         
         return response
-        
-    except HTTPException:
-        raise
+    
+    
     except Exception as e:
-        db.rollback()
         raise HTTPException(status_code=400, detail=f"Не удалось подключитьсяк бд: {e}")
+    
+    except HTTPException as http_exception:
+        raise http_exception
+     

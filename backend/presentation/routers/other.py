@@ -23,11 +23,3 @@ def root(request: Request):
 @router.get("/about")
 def root(request: Request):
     return templates.TemplateResponse("about_us.html", {"request" : request})
-
-@router.get('/auth/register')
-async def register_get(request: Request):
-    return templates.TemplateResponse("register.html", {'request' : request})
-
-@router.get('/auth/login')
-async def login_get(request:Request):
-    return templates.TemplateResponse("login.html", {'request' : request})
