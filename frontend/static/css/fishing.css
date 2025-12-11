@@ -13,6 +13,11 @@ body
 {
    visibility: hidden;
 }
+
+html{
+   scroll-behavior: smooth;
+}
+
 #wb_fishing_page
 {
    clear: both;

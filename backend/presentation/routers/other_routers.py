@@ -23,3 +23,7 @@ def root(request: Request):
 @router.get("/about")
 def root(request: Request):
     return templates.TemplateResponse("about_us.html", {"request" : request})
+
+@router.get("/contacts")
+def root(request: Request):
+    return templates.TemplateResponse("contacts_page.html", {"request" : request})
