@@ -1,167 +1,124 @@
 <!doctype html>
-<html lang="ru">
+<html>
 <head>
-  <meta charset="utf-8">
-  <title>О нас | Wild Karelia</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="/static/css/about_us.css" rel="stylesheet">
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
+<meta charset="utf-8">
+<title>О нас | Wild Karelia</title>
+<meta name="generator" content="WYSIWYG Web Builder 20 - https://www.wysiwygwebbuilder.com">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&700,400&display=swap" rel="stylesheet">
+<link href="/static/css/about_us2.css" rel="stylesheet">
+<link href="/static/css/about_us1.css" rel="stylesheet">
+<script src="js/jquery-3.7.1.min.js"></script>
+<script src="js/jquery.ui.effect.min.js"></script>
 <script>
-$(document).ready(function() {
-  $("a[href*='#reviews']").click(function(event) {
-    event.preventDefault();
-    $('html, body').stop().animate({ scrollTop: $('#wb_reviews').offset().top - 88 }, 600);
-  });
-  $("a[href*='#LayoutGrid2']").click(function(event) {
-    event.preventDefault();
-    $('html, body').stop().animate({ scrollTop: $('#wb_LayoutGrid2').offset().top - 88 }, 600);
-  });
-  $("a[href*='#header']").click(function(event) {
-    event.preventDefault();
-    $('html, body').stop().animate({ scrollTop: $('#wb_header').offset().top }, 600);
-  });
+$(document).ready(function()
+{
+   $("a[href*='#header']").click(function(event)
+   {
+      event.preventDefault();
+      $('html, body').stop().animate({ scrollTop: $('#wb_header').offset().top }, 600, 'easeOutCirc');
+   });
 });
 </script>
 </head>
-
 <body>
-
+<div id="wb_teamLayoutGrid">
+<div id="teamLayoutGrid">
+<div class="row">
+<div class="col-1">
+<div id="wb_teamHeading" style="display:block;width:100%;z-index:0;">
+<h2 id="teamHeading">Команда</h2>
+</div>
+<div id="wb_teamText">
+<p>Мы предлагаем путешествия по Карелии, созданные на основе уникальных авторских маршрутов, которые недоступны массовому туризму. Наши специалисты — опытный проводник, охотник и рыбак — знают регион до мельчайших деталей и обеспечивают гостям не только безопасное, но и насыщенное впечатлениями путешествие. Мы работаем небольшими группами или индивидуально, чтобы уделять максимум внимания каждому участнику и создавать комфортную атмосферу.</p>
+<br>
+<p>Особое внимание мы уделяем безопасности: используем проверенное снаряжение, продумываем маршруты и всегда имеем при себе средства связи и необходимые аптечки. В наших поездках гости не просто наблюдают природу — они узнают её законы, учатся ориентироваться на местности, осваивают техники рыбалки и основы охоты, а также получают навыки жизни в лесу.</p>
+<br>
+<p>Мы придерживаемся принципов уважительного отношения к природе, стараемся сохранять её первозданность и учим этому наших гостей. Путешествия с нами — это возможность увидеть Карелию такой, какой её знают только местные: тихие леса, скрытые озёра, редкие тропы и красивые места вдали от туристических потоков. Здесь каждый сможет найти что-то своё — приключение, спокойствие или глубокое погружение в северную атмосферу.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="wb_teamCardContainer">
+<div id="teamCardContainer">
+<div id="wb_teamCard1" style="display:flex;z-index:2;" class="card">
+<div id="teamCard1-card-body">
+<img id="teamCard1-card-item0" src="/static/images/tourist.jpg" width="1200" height="630" alt="" title="">
+<div id="teamCard1-card-item1"><h1>Иван<br></h1></div>
+<div id="teamCard1-card-item2"><h1>Ваш проводник в мир дикой природы<br><br></h1></div>
+<div id="teamCard1-card-item3">Настоящий эксперт Карелии. Он знает каждый лесной маршрут, старые охотничьи тропы, безопасные перевалы и тайные смотровые точки. Благодаря многолетнему опыту он проведёт вас по самым живописным и малоизвестным уголкам региона, обеспечив безопасность и насыщенные впечатления.</div>
+</div>
+</div>
+<div id="wb_teamCard2" style="display:flex;z-index:3;" class="card">
+<div id="teamCard2-card-body">
+<img id="teamCard2-card-item0" src="/static/images/fisher_img.jpg" width="1280" height="800" alt="" title="">
+<div id="teamCard2-card-item1"><h1>Евгений<br></h1></div>
+<div id="teamCard2-card-item2"><h1>Профессиональный Рыбак</h1></div>
+<div id="teamCard2-card-item3">Мастер, выросший на северных озёрах и реках. Он прекрасно ориентируется в водоёмах Карелии, знает лучшие места для улова и техники ловли в любое время года. С ним рыбалка превращается в настоящее искусство, где каждый участник найдёт что-то своё — трофей, азарт или спокойствие на воде.</div>
+</div>
+</div>
+<div id="wb_teamCard3" style="display:flex;z-index:4;" class="card">
+<div id="teamCard3-card-body">
+<img id="teamCard3-card-item0" src="/static/images/hunter_img.jpg" width="1752" height="1168" alt="" title="">
+<div id="teamCard3-card-item1"><h1>Александр</h1></div>
+<div id="teamCard3-card-item2"><h1>Охотник<br></h1></div>
+<div id="teamCard3-card-item3">Профессионал своего дела с глубоким уважением к природе и её законам. Он досконально знает повадки местных животных, особенности карельских лесов и правила ответственной охоты. С ним вы не только отправитесь в увлекательное приключение, но и получите ценный опыт, основанный на реальном мастерстве.</div>
+</div>
+</div>
+</div>
+</div>
 <div id="wb_header">
-  <div id="header">
-    <div class="col-1">
-      <div id="wb_Image3">
-        <a href="./">
-          <img src="/static/images/logo_img.png" id="Image3" alt="Wild Karelia" width="93" height="93">
-        </a>
-      </div>
-    </div>
-
-    <div class="col-2">
-      <div id="wb_LayoutGrid3">
-        <div id="LayoutGrid3">
-          <div class="col-1">
-            <div id="wb_ResponsiveMenu1">
-              <label class="toggle" for="ResponsiveMenu1-submenu" id="ResponsiveMenu1-title">
-                Меню
-                <span id="ResponsiveMenu1-icon"><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span></span>
-              </label>
-              <input type="checkbox" id="ResponsiveMenu1-submenu">
-              <ul class="ResponsiveMenu1" id="ResponsiveMenu1" role="menu">
-                <li role="menuitem"><a href="./">Главная</a></li>
-                <li role="menuitem">
-                  <label for="ResponsiveMenu1-submenu-0" class="toggle">Услуги<span class="arrow-down"></span></label>
-                  <a href="#">Услуги<span class="arrow-down"></span></a>
-                  <input type="checkbox" id="ResponsiveMenu1-submenu-0">
-                  <ul role="menu">
-                    <li role="menuitem"><a href="./fishing">Рыбалка</a></li>
-                    <li role="menuitem"><a href="./hunting">Охота</a></li>
-                  </ul>
-                </li>
-                <li role="menuitem"><a href="./about_us" class="active">О нас</a></li>
-                <li role="menuitem"><a href="./contacts">Контакты</a></li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="col-2">
-            <div id="wb_LayoutGrid4">
-              <div id="LayoutGrid4">
-                <div class="row">
-                  <div class="col-1">
-                    <!-- <div id="wb_Icon1">
-                      <div id="Icon1"><i class="Icon1"></i></div> иконку-->
-                    </div>
-                  </div>
-                  <div class="col-2">
-                    <a id="Button1" href="./auth/login" style="display:inline-block;width:209px;height:24px;z-index:8;">Войти / Зарегистрироваться</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-  </div>
+<div id="header">
+<div class="col-1">
+<div id="wb_Image3" style="display:inline-block;width:93px;height:93px;z-index:5;">
+<a href="./"><img src="/static/images/logo_img.png" id="Image3" alt="" width="93" height="93"></a>
 </div>
-
-
-<div id="wb_reviews">
-  <div id="reviews">
-    <div class="col-1">
-      <div class="col-1-padding">
-        <div id="wb_LayoutGrid1">
-          <div id="LayoutGrid1">
-            <div class="row">
-              <div class="col-1">
-                <div id="wb_Text2">
-                  <div>
-                    <span style="color:#EEB519;font-family:Arial;font-size:22px;"><strong>О нас</strong></span>
-                  </div>
-                </div>
-                <div id="wb_Text1">
-                  <div>
-                    <span style="color:#FFFFFF;font-family:Arial;font-size:17px;">
-                      Мы — команда профессионалов, которая любит охоту и рыбалку так же сильно, как и вы.
-                      <br><br>
-                      <strong>"Wild Karelia"</strong> существует для того, чтобы каждый охотник и рыболов смог испытать радость активного отдыха в Карелии.
-                      <br><br>
-                      Мы организуем безопасные и увлекательные туры, полностью погружающие в атмосферу дикой природы. Наши гиды — настоящие эксперты с многолетним опытом, которые знают лес, озёра и повадки животных и рыбы лучше любого путеводителя.
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-2">
-                <div id="wb_Image1">
-                  <img src="/static/images/about_us_img1.jpg" id="Image1" alt="О нас Wild Karelia">
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
+<div class="col-2">
+<div id="wb_LayoutGrid3">
+<div id="LayoutGrid3">
+<div class="col-1">
+<div id="wb_ResponsiveMenu1" style="display:block;width:100%;z-index:6;">
+<label class="toggle" for="ResponsiveMenu1-submenu" id="ResponsiveMenu1-title">Menu<span id="ResponsiveMenu1-icon"><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span></span></label>
+<input type="checkbox" id="ResponsiveMenu1-submenu">
+<ul class="ResponsiveMenu1" id="ResponsiveMenu1" role="menu">
+<li role="menuitem"><a href="./" class="nav-link">Главная</a></li>
+<li role="menuitem">
+<label for="ResponsiveMenu1-submenu-0" class="toggle">Услуги<span class="arrow-down"></span></label>
+<a href="javascript:void(0)" class="nav-link">Услуги<span class="arrow-down"></span></a>
+<input type="checkbox" id="ResponsiveMenu1-submenu-0">
+<ul role="menu">
+<li role="menuitem"><a href="./fishing" class="nav-link">Рыбалка</a></li>
+<li role="menuitem"><a href="./hunting" class="nav-link">Охота</a></li>
+</ul>
+</li>
+<li role="menuitem"><a href="#" class="nav-link">О&nbsp;нас</a></li>
+<li role="menuitem"><a href="./contacts" class="nav-link">Контакты</a></li>
+</ul>
 
-
-<div id="wb_LayoutGrid2">
-  <div id="LayoutGrid2">
-    <div class="col-1">
-      <div class="col-1-padding">
-        <div id="wb_LayoutGrid5">
-          <div id="LayoutGrid5">
-            <div class="row">
-              <div class="col-1">
-                <div id="wb_Text4">
-                  <div>
-                    <span style="color:#EEB519;font-family:Arial;font-size:22px;"><strong>Отзывы наших клиентов</strong></span>
-                  </div>
-                </div>
-                <div id="wb_Text3">
-                  <div>
-                    <span style="color:#FFFFFF;font-family:Arial;font-size:17px;">
-                      Иван П., Москва<br>
-                      “Поразительное место! Природа Карелии завораживает. Гиды невероятно опытные — охота и рыбалка прошли просто идеально.”
-                      <br><br>
-                      Мария С., Санкт-Петербург<br>
-                      “Это был мой первый тур на север, и я осталась в полном восторге. Проживание уютное, еда вкусная, а рыбалка на озере — просто незабываемая!”
-                      <br><br>
-                      Алексей К., Новосибирск<br>
-                      “Невероятный сервис и профессионализм. Всё от трансфера до рыбалки и охоты продумано до мелочей. Обязательно вернусь!”
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+</div>
+</div>
+<div class="col-2">
+<div id="wb_LayoutGrid4">
+<div id="LayoutGrid4">
+<div class="row">
+<div class="col-1">
+<div id="wb_Icon1" style="display:inline-block;width:31px;height:24px;text-align:center;z-index:7;">
+<div id="Icon1"><i class="Icon1"></i></div>
+</div>
+</div>
+<div class="col-2">
+<a id="Button1" href="./auth/register" style="display:inline-block;width:209px;height:24px;z-index:8;">Войти / Зарегистрироваться</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </body>
 </html>

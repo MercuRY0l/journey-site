@@ -9,6 +9,14 @@ body
    margin: 0;
    padding: 0;
 }
+
+html{
+
+   background-color: #1B262C;
+
+}
+
+
 #wb_teamLayoutGrid
 {
    clear: both;
