@@ -4,13 +4,19 @@ display: flex;
 justify-content: center;
 align-items: center;
 height: 100vh;
-background: #f8f8f8;
+background: #267365;
 }
+
+html{
+
+    background-color: #267365;
+}
+
 .auth-container {
 width: 100%;
 max-width: 400px;
 padding: 40px;
-background-color: #fff;
+background-color: #267365;
 border: 1px solid #dee2e6;
 box-sizing: border-box;
 border-radius: 0;
@@ -25,7 +31,7 @@ font-family: Arial;
 width: 100%;
 padding: 10px 12px;
 margin-bottom: 20px;
-border: 1px solid #dee2e6;
+border: 1px solid #267365;
 border-radius: 0;
 box-sizing: border-box;
 font-size: 14px;
