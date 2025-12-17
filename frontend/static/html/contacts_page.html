@@ -16,16 +16,73 @@
 
 
 
-<header>
-  <a href="./"><img src="/static/images/logo_img.png" alt="Wild Karelia Logo"></a>
-  <nav>
-    <ul>
-      <li><a href="./">Главная</a></li>
-      <li><a href="./about">О нас</a></li>
-      <li><a href="./contacts">Контакты</a></li>
-    </ul>
-  </nav>
-</header>
+<div id="wb_header">
+  <div id="header">
+    <div class="col-1">
+      <div id="wb_Image3" style="display:inline-block;width:93px;height:93px;z-index:5;">
+        <a href="./">
+          <img src="/static/images/logo_img.png" id="Image3" alt="" width="93" height="93">
+        </a>
+      </div>
+    </div>
+
+    <div class="col-2">
+      <div id="wb_LayoutGrid3">
+        <div id="LayoutGrid3">
+          <div class="col-1">
+            <div id="wb_ResponsiveMenu1" style="display:block;width:100%;z-index:6;">
+              <label class="toggle" for="ResponsiveMenu1-submenu" id="ResponsiveMenu1-title">
+                Menu
+                <span id="ResponsiveMenu1-icon">
+                  <span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span>
+                </span>
+              </label>
+
+              <input type="checkbox" id="ResponsiveMenu1-submenu">
+
+              <ul class="ResponsiveMenu1" id="ResponsiveMenu1" role="menu">
+                <li role="menuitem">
+                  <a href="./" class="nav-link">Главная</a>
+                </li>
+
+                <li role="menuitem">
+                  <label for="ResponsiveMenu1-submenu-0" class="toggle">
+                    Услуги<span class="arrow-down"></span>
+                  </label>
+                  <a href="javascript:void(0)" class="nav-link">
+                    Услуги<span class="arrow-down"></span>
+                  </a>
+                  <input type="checkbox" id="ResponsiveMenu1-submenu-0">
+                  <ul role="menu">
+                    <li role="menuitem"><a href="./fishing" class="nav-link">Рыбалка</a></li>
+                    <li role="menuitem"><a href="./hunting" class="nav-link">Охота</a></li>
+                  </ul>
+                </li>
+
+                <li role="menuitem"><a href="./about" class="nav-link">О нас</a></li>
+                <li role="menuitem"><a href="./contacts" class="nav-link">Контакты</a></li>
+              </ul>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-2">
+<div id="wb_LayoutGrid4">
+<div id="LayoutGrid4">
+<div class="row">
+<div class="col-1">
+<div id="wb_Icon1" style="display:inline-block;width:31px;height:24px;text-align:center;z-index:7;">
+<div id="Icon1"><i class="Icon1"></i></div>
+</div>
+</div>
+<div class="col-2">
+<a id="Button1" href="./auth/login" style="display:inline-block;width:209px;height:24px;z-index:8;">Войти / Зарегистрироваться</a>
+</div>
 
 <div class="contact-container" id="wb_contacts_main_page">
   <h1>Свяжитесь с нами!</h1>

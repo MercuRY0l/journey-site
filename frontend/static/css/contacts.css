@@ -1,28 +1,8 @@
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   background-color: #172025;
-}
-
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #27374D;
-  padding: 10px 20px;
-  color: #fff;
-}
-
-header img {
-  height: 60px;
-}
-
-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  gap: 15px;
 }
 
 nav ul li a {
@@ -33,7 +13,7 @@ nav ul li a {
 
 .contact-container {
   max-width: 900px;
-  margin: 40px auto;
+  margin: 140px auto 40px auto;
   padding: 30px;
   background: #313647;
   border-radius: 10px;
@@ -93,4 +73,139 @@ nav ul li a {
 
 html {
   scroll-behavior: smooth;
+}
+
+
+#header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 20px;
+  gap: 20px;
+  height: 100px;
+  background-color: #1f2a3a;
+}
+
+#header > .col-1 {
+  display: flex;
+  align-items: center;
+}
+
+#header > .col-2 {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-grow: 1;
+}
+
+
+#wb_ResponsiveMenu1 {
+  display: flex;
+  align-items: center;
+  margin-left: 60px;
+}
+
+.ResponsiveMenu1 {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+.ResponsiveMenu1 > li {
+  position: relative;
+}
+
+.ResponsiveMenu1 a.nav-link {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px 15px;
+  display: block;
+  transition: background 0.3s;
+}
+
+.ResponsiveMenu1 a.nav-link:hover {
+  background-color: #1f2a3a;
+  border-radius: 6px;
+}
+
+
+.ResponsiveMenu1 ul {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #27374D;
+  list-style: none;
+  padding: 10px 0;
+  margin: 0;
+  min-width: 160px;
+  display: none;
+  border-radius: 8px;
+  z-index: 9999;
+}
+
+.ResponsiveMenu1 ul li a {
+  padding: 10px 20px;
+  white-space: nowrap;
+}
+
+.ResponsiveMenu1 li:hover > ul {
+  display: block;
+}
+
+
+.toggle {
+  display: none;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 10px 15px;
+}
+
+#ResponsiveMenu1-icon span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #fff;
+  margin: 4px 0;
+}
+
+
+@media (max-width: 768px) {
+  .toggle {
+    display: inline-block;
+  }
+
+  .ResponsiveMenu1 {
+    flex-direction: column;
+    display: none;
+    width: 100%;
+    background-color: #27374D;
+    margin-top: 10px;
+    border-radius: 10px;
+  }
+
+  .ResponsiveMenu1 > li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .ResponsiveMenu1 ul {
+    position: static;
+    display: none;
+    width: 100%;
+    background-color: #1f2a3a;
+  }
+
+  .ResponsiveMenu1 li:hover > ul {
+    display: none;
+  }
+}
+
+#ResponsiveMenu1-submenu,
+#ResponsiveMenu1-submenu-0 {
+  display: none; 
 }

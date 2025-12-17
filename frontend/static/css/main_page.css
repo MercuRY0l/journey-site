@@ -1413,6 +1413,31 @@ html{
    max-width: 100% !important;
 }
 }
+
+
+#wb_header
+{
+   position: fixed !important;
+   float: none !important;
+   transition: all 500ms linear;   
+   z-index: 9990 !important;
+}
+#wb_header.affix
+{
+   background: #5E85C0;
+   transition: all 500ms linear;   
+}
+#wb_header.affix #ThemeableMenu1 a
+{
+   color: #FFFFFF;
+}
+#wb_header.affix .ThemeableMenu1 .navbar-nav > .dropdown > a .caret 
+{
+    border-top-color: #FFFFFF;
+    border-bottom-color: #FFFFFF;
+}
+
+
 #wb_Image3
 {
    margin: 0;
@@ -1999,25 +2024,3 @@ html{
 {
    filter: invert(100%);
 }
-#wb_header
-{
-   position: fixed !important;
-   float: none !important;
-   transition: all 500ms linear;   
-   z-index: 9990 !important;
-}
-#wb_header.affix
-{
-   background: #5E85C0;
-   transition: all 500ms linear;   
-}
-#wb_header.affix #ThemeableMenu1 a
-{
-   color: #FFFFFF;
-}
-#wb_header.affix .ThemeableMenu1 .navbar-nav > .dropdown > a .caret 
-{
-    border-top-color: #FFFFFF;
-    border-bottom-color: #FFFFFF;
-}
-
