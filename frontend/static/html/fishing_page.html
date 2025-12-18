@@ -1,0 +1,150 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Рыбалка | Wild Karelia</title>
+<meta name="generator" content="WYSIWYG Web Builder 14 - http://www.wysiwygwebbuilder.com">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel = "stylesheet" href="/static/css/fishing.css">
+
+
+
+<script>
+$(document).ready(function()
+{
+   $('#reviewsImage1').addClass('visibility-hidden');
+   $('#portfolio-image2').addClass('visibility-hidden');
+   $("a[href*='#fishing_page']").click(function(event)
+   {
+      event.preventDefault();
+      $('html, body').stop().animate({ scrollTop: $('#wb_fishing_page').offset().top-88 }, 600, 'easeOutCirc');
+   });
+   $("a[href*='#fishing_page2']").click(function(event)
+   {
+      event.preventDefault();
+      $('html, body').stop().animate({ scrollTop: $('#wb_fishing_page2').offset().top-88 }, 600, 'easeOutCirc');
+   });
+   function onScrollfishing_page2()
+   {
+      var $obj = $("#wb_fishing_page2");
+      if (!$obj.hasClass("in-viewport") && $obj.inViewPort(false))
+      {
+         $obj.addClass("in-viewport");
+         AnimateCss('reviewsImage1', 'animate-fade-in-up', 0, 1000);
+         AnimateCss('portfolio-image2', 'animate-fade-in-up', 500, 1000);
+      }
+   }
+   onScrollfishing_page2();
+   $(window).scroll(function(event)
+   {
+      onScrollfishing_page2();
+   });
+   $("a[href*='#header']").click(function(event)
+   {
+      event.preventDefault();
+      $('html, body').stop().animate({ scrollTop: $('#wb_header').offset().top }, 600, 'easeOutCirc');
+   });
+});
+</script>
+</head>
+<body>
+<div id="wb_fishing_page">
+<div id="fishing_page">
+<div class="col-1">
+<div class="col-1-padding">
+<div id="wb_Image1" style="display:block;width:100%;height:auto;z-index:0;">
+<img src="/static/images/fishing_img1.jpg" id="Image1" alt="" width="455" height="256">
+</div>
+</div>
+</div>
+<div class="col-2">
+<div class="col-2-padding">
+<div id="wb_Text3">
+<span style="color:#EEB519;font-family:Arial;font-size:19px; margin-top:30px; display:inline-block;"><strong>Летняя рыбалка</strong></span>
+</div>
+<div id="wb_reviewsText1">
+<span style="color:#FFFFFF;"><br><strong>Лето в Карелии </strong>— сезон ярких рассветов, прозрачных вод и богатых уловов. Мы организуем рыболовные туры по самым живописным и рыбным местам региона — от уютных озёр до огромных акваторий.<br><br><strong>Что ловим летом</strong><br><strong>Щука</strong> — активна на рассвете, атакует блесну и живца;<br><strong>Окунь</strong> — встречается повсюду, отлично клюёт на вертушки;<br><strong>Судак</strong> — предпочитает глубины крупных озёр;<br><strong>Плотва, лещ, язь </strong>— любимая добыча любителей поплавочной ловли.<br><br><strong>Где проходит рыбалка</strong><br>Популярные направления летних туров:<br>Онежское и Ладожское озёра — судак, щука, сиг;<br>Река Шуя — спиннинговая рыбалка, форель, хариус;<br>Озёра Сямозеро, Пяозеро, Сегозеро, Ведлозеро — отличное сочетание клёва и тишины северной природы.<br><br><strong>Что входит в тур</strong><br>проживание в домиках или палатках;<br>аренда лодок и снастей;<br>сопровождение егеря;<br>приготовление улова прямо на берегу (уха, жарка, копчение).<br></span>
+</div>
+<a id="Button3" href="./contacts" style="display:inline-block;width:141px;height:40px;z-index:3;">Забронировать</a>
+</div>
+</div>
+</div>
+</div>
+<div id="wb_fishing_page2">
+<div id="fishing_page2">
+<div class="col-1">
+<div class="col-1-padding">
+<div id="wb_Text4">
+<span style="color:#EEB519;font-family:Arial;font-size:19px;"><strong>Зимняя рыбалка<br></strong></span><span style="color:#000000;font-family:Arial;font-size:13px;"><br></span>
+</div>
+<div id="wb_reviewsText2">
+<span style="color:#FFFFFF;">Когда Карелию покрывает лёд, начинается другой, не менее захватывающий сезон — подледная рыбалка. Снежные просторы, кристально чистый воздух, потрескивание льда и горячий чай у лунки — всё это создаёт особую атмосферу северного отдыха.<br><br><strong>Что ловим зимой</strong><br><br><strong>Окунь </strong>— активен всю зиму, отлично идёт на мормышку;<br><strong>Щука </strong>— добыча для терпеливых, ловится на жерлицы и блесну;<br><strong>Сиг, ряпушка, форель </strong>— настоящие деликатесы для трофейной рыбалки;<br><strong>Плотва и лещ </strong>— стабильный клёв на прикормленных местах.<br><br><strong>Лучшие локации</strong><br><br><strong>Сямозеро, Пяозеро, Линдозеро, Кончезеро </strong>— стабильный клёв и живописные виды;<br><strong>Онежское и Ладожское озёра </strong>— шанс поймать крупную щуку и сига;<br><strong>Малые озёра рядом с Петрозаводском </strong>— идеально для коротких выездов и семейных туров.<br><br><strong>В тур входит</strong><br><br>трансфер к водоёму и обратно;<br>снасти, палатки, буры и всё необходимое оборудование;<br>сопровождение гида;<br>горячие напитки и обед прямо на льду;<br>фотосессия и приготовление свежей ухи.</span>
+</div>
+<a id="Button1" href="./contacts" style="display:inline-block;width:141px;height:40px;z-index:6;">Забронировать</a>
+</div>
+</div>
+<div class="col-2">
+<div class="col-2-padding">
+<div id="wb_Image4" style="display:block;width:100%;height:auto;z-index:7;">
+<img src="/static/images/fishing_img2.jpg" id="Image4" alt="" width="455" height="305">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="wb_header">
+<div id="header">
+<div class="col-1">
+<div id="wb_Image3" style="display:inline-block;width:93px;height:93px;z-index:8;">
+<a href="./"><img src="/static/images/logo_img.png" id="Image3" alt="" width="93" height="93"></a>
+</div>
+</div>
+<div class="col-2">
+<div id="wb_LayoutGrid3">
+<div id="LayoutGrid3">
+<div class="col-1">
+<div id="wb_ResponsiveMenu1" style="display:block;width:100%;z-index:9;">
+<label class="toggle" for="ResponsiveMenu1-submenu" id="ResponsiveMenu1-title">Menu<span id="ResponsiveMenu1-icon"><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span></span></label>
+<input type="checkbox" id="ResponsiveMenu1-submenu">
+<ul class="ResponsiveMenu1" id="ResponsiveMenu1" role="menu">
+<li role="menuitem"><a href="./" class="nav-link">Главная</a></li>
+<li role="menuitem">
+<label for="ResponsiveMenu1-submenu-0" class="toggle">Услуги<span class="arrow-down"></span></label>
+<a href="javascript:void(0)" class="nav-link">Услуги<span class="arrow-down"></span></a>
+<input type="checkbox" id="ResponsiveMenu1-submenu-0">
+<ul role="menu">
+<li role="menuitem"><a href="./fishing" class="nav-link">Рыбалка</a></li>
+<li role="menuitem"><a href="./hunting" class="nav-link">Охота</a></li>
+</ul>
+</li>
+<li role="menuitem"><a href="./about" class="nav-link">О&nbsp;нас</a></li>
+<li role="menuitem"><a href="./contacts" class="nav-link">Контакты</a></li>
+</ul>
+
+</div>
+</div>
+<div class="col-2">
+<div id="wb_LayoutGrid4">
+<div id="LayoutGrid4">
+<div class="row">
+<div class="col-1">
+<div id="wb_Icon1" style="display:inline-block;width:31px;height:24px;text-align:center;z-index:10;">
+<div id="Icon1"><i class="Icon1"></i></div> 
+</div>
+</div>
+<div class="col-2">
+<a id="Button2" href="./auth/login" style="display:inline-block;width:209px;height:24px;z-index:11;">Войти / Зарегистрироваться</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

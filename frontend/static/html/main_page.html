@@ -1,0 +1,231 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Главная страница | Wild Karelia</title>
+<meta name="generator" content="WYSIWYG Web Builder 14 - http://www.wysiwygwebbuilder.com">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> 
+<link href="/static/font-awesome.min.css" rel="stylesheet">
+<link href="/static/css/main_page.css" rel="stylesheet">
+
+
+<script>
+$(document).ready(function()
+{
+   $('#reviewsImage1').addClass('visibility-hidden');
+   $('#portfolio-image2').addClass('visibility-hidden');
+   $("a[href*='#home']").click(function(event)
+   {
+      event.preventDefault();
+      $('html, body').stop().animate({ scrollTop: $('#wb_home').offset().top-88 }, 600, 'easeOutCirc');
+   });
+   $("a[href*='#nature_main_page']").click(function(event)
+   {
+      event.preventDefault();
+      $('html, body').stop().animate({ scrollTop: $('#wb_nature_main_page').offset().top-88 }, 600, 'easeOutCirc');
+   });
+   $("a[href*='#fishing_main_page']").click(function(event)
+   {
+      event.preventDefault();
+      $('html, body').stop().animate({ scrollTop: $('#wb_fishing_main_page').offset().top-88 }, 600, 'easeOutCirc');
+   });
+   function onScrollfishing_main_page()
+   {
+      var $obj = $("#wb_fishing_main_page");
+      if (!$obj.hasClass("in-viewport") && $obj.inViewPort(false))
+      {
+         $obj.addClass("in-viewport");
+         AnimateCss('reviewsImage1', 'animate-fade-in-up', 0, 1000);
+         AnimateCss('portfolio-image2', 'animate-fade-in-up', 500, 1000);
+      }
+   }
+   onScrollfishing_main_page();
+   $(window).scroll(function(event)
+   {
+      onScrollfishing_main_page();
+   });
+   $("a[href*='#hunt_main_page']").click(function(event)
+   {
+      event.preventDefault();
+      $('html, body').stop().animate({ scrollTop: $('#wb_hunt_main_page').offset().top-88 }, 600, 'easeOutCirc');
+   });
+   $("a[href*='#header']").click(function(event)
+   {
+      event.preventDefault();
+      $('html, body').stop().animate({ scrollTop: $('#wb_header').offset().top }, 600, 'easeOutCirc');
+   });
+   var iOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform);
+   if (iOS)
+   {
+      $('#wb_home').css('background-attachment', 'scroll');
+   }
+});
+</script>
+<script>
+// NOTE: this code will fix the header at the top of the page. It will also change the background when in fixed mode (via the CSS classes above).
+$(document).ready(function()
+{
+   $("#wb_header").affix({offset:{top: $("#wb_header").offset().top}});
+});
+</script>
+</head>
+<body class="wb-theme-content">
+<div id="wb_home" style="position: relative; width: 100%; height: 400px; overflow: hidden;">
+    
+    <img src="/static/images/background_img1.jpg" alt="Карелия" style="width:100%; height:100%; object-fit: cover; display: block;">
+    
+    
+    <div id="wb_homeText" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: white; text-shadow: 2px 2px 6px rgba(0,0,0,0.5);">
+        <span style="font-family:'Arial Black'; font-size:32px; line-height:36px;"><strong>Карелия — вдохновение на каждом шагу</strong></span>
+    </div>
+</div>
+<div id="wb_features27LayoutGrid">
+<div id="features27LayoutGrid">
+<div class="col-1">
+<div id="wb_about_us_main_page" style="display:block;width:100%;z-index:1;">
+<h1 id="about_us_main_page">О нас<br></h1>
+</div>
+<div id="wb_features27Text">
+<p>Мы — команда энтузиастов, увлечённых природой и активным отдыхом, и с гордостью приглашаем вас открыть для себя уникальные уголки Карелии. Наша компания специализируется на организации охоты, рыбалки и разнообразных приключенческих туров, позволяя каждому почувствовать гармонию с природой и насладиться настоящими эмоциями на свежем воздухе.</p>
+<br>
+<p>Мы заботимся о комфорте и безопасности наших гостей, предлагая тщательно продуманные маршруты, опытных гидов и индивидуальный подход к каждому путешествию. Независимо от того, ищете ли вы спокойную рыбалку на кристально чистых озёрах, захватывающую охоту или активный отдых на природе, мы сделаем ваше пребывание в Карелии незабываемым.</p>
+</div>
+</div>
+<div class="col-2">
+<div id="wb_Image4" style="display:block;width:100%;height:auto;z-index:3;">
+<img src="/static/images/background_img_compas.jpg" id="Image4" alt="" width="455" height="303">
+</div>
+</div>
+</div>
+</div>
+<div id="wb_nature_main_page">
+<div id="nature_main_page">
+<div class="col-1">
+<div class="col-1-padding">
+<div id="wb_Image1" style="display:block;width:100%;height:auto;z-index:4;">
+<img src="/static/images/background_img2.jpg" id="Image1" alt="" width="455" height="256">
+</div>
+</div>
+</div>
+<div class="col-2">
+<div class="col-2-padding">
+<div id="wb_Text3">
+<span style="color:#EEB519;font-family:Arial;font-size:19px;"><strong>Природа Республики Карелия<br></strong></span>
+</div>
+<div id="wb_reviewsText1">
+<span style="color:#FFFFFF;">Карелия — место, где природа не просто вокруг, а внутри тебя. Озёра, леса, водопады и тишина, которая перезагружает душу. Приключения, рыбалка , охота , свежий воздух и вдохновение ждут на каждом шагу. Поехать в Карелию — значит прикоснуться к настоящей красоте и свободе.</span>
+</div>
+<a id="Button4" href="./contacts" style="display:inline-block;width:141px;height:37px;z-index:7;">Узнать больше</a>
+</div>
+</div>
+</div>
+</div>
+<div id="wb_fishing_main_page">
+<div id="fishing_main_page">
+<div class="col-1">
+<div class="col-1-padding">
+<div id="wb_Text2">
+<span style="color:#EEB519;font-family:Arial;font-size:19px;"><strong>Рыбалка на Онежском озере</strong></span>
+</div>
+<div id="wb_reviewsText2">
+<span style="color:#FFFFFF;"><br>Рыбалка в Карелии — это одно из самых ярких впечатлений, которые можно получить на севере России. Этот край богат тысячами озёр, рек и проток, и почти каждое из них манит рыбаков своей красотой и богатым уловом. Мы хотим подарить вам замечательную возможность ощутить всю прелесть настоящей северной рыбалки. Вас ждёт свежий воздух, тишина карельских лесов, прозрачная вода озёр и рек, а главное — азарт и радость от удачного улова.</span>
+</div>
+<a id="Button3" href="./fishing" style="display:inline-block;width:141px;height:40px;z-index:10;">Узнать больше</a>
+</div>
+</div>
+<div class="col-2">
+<div class="col-2-padding">
+<div id="wb_reviewsImage2" style="display:inline-block;width:455px;height:255px;z-index:11;">
+<img src="/static/images/background_img3.jpg" id="reviewsImage2" alt="" width="455" height="256">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="wb_hunt_main_page">
+<div id="hunt_main_page">
+<div class="row">
+<div class="col-1">
+<div class="col-1-padding">
+<div id="wb_Image2" style="display:inline-block;width:480px;height:320px;z-index:12;">
+<img src="/static/images/background_img4.jpg" id="Image2" alt="Hunters men going through rural field towards forest during hunting season" title="Hunters men going through rural field towards forest during hunting season" width="480" height="320">
+</div>
+</div>
+</div>
+<div class="col-2">
+<div class="col-2-padding">
+<div id="wb_Text4">
+<span style="color:#EEB519;font-family:Arial;font-size:19px;"><strong>Охота</strong></span>
+</div>
+<div id="wb_Text1">
+<span style="color:#FFFFFF;font-family:Arial;font-size:19px;">Карелия — идеальное место для охоты на крупного и пушного зверя, а также на пернатую дичь. Чистые леса, озёра и реки создают уникальные условия для активного отдыха. Мы предлагаем организованные охотничьи туры с опытными гидами, проживанием и всем необходимым снаряжением.<br><br></span>
+</div>
+<a id="Button2" href="./hunting" style="display:inline-block;width:141px;height:39px;z-index:15;">Узнать больше</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+<div id="wb_header">
+<div id="header">
+<div class="col-1">
+<div id="wb_Image3" style="display:inline-block;width:93px;height:93px;z-index:35;">
+<a href="./"><img src="/static/images/logo_img.png" id="Image3" alt="" width="93" height="93"></a>
+</div>
+</div>
+<div class="col-2">
+<div id="wb_LayoutGrid3">
+<div id="LayoutGrid3">
+<div class="col-1">
+<div id="wb_ResponsiveMenu1" style="display:block;width:100%;z-index:36;">
+<label class="toggle" for="ResponsiveMenu1-submenu" id="ResponsiveMenu1-title">Menu<span id="ResponsiveMenu1-icon"><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span></span></label>
+<input type="checkbox" id="ResponsiveMenu1-submenu">
+<ul class="ResponsiveMenu1" id="ResponsiveMenu1" role="menu">
+<li role="menuitem"><a href="./" class="nav-link">Главная</a></li>
+<li role="menuitem">
+<label for="ResponsiveMenu1-submenu-0" class="toggle">Услуги<span class="arrow-down"></span></label>
+<a href="javascript:void(0)" class="nav-link">Услуги<span class="arrow-down"></span></a>
+<input type="checkbox" id="ResponsiveMenu1-submenu-0">
+<ul role="menu">
+<li role="menuitem"><a href="./fishing" class="nav-link">Рыбалка</a></li>
+<li role="menuitem"><a href="./hunting" class="nav-link">Охота</a></li>
+</ul>
+</li>
+<li role="menuitem"><a href="./about" class="nav-link">О&nbsp;нас</a></li>
+<li role="menuitem"><a href="./contacts" class="nav-link">Контакты</a></li>
+</ul>
+
+</div>
+</div>
+
+
+
+
+<div class="col-2">
+<div id="wb_LayoutGrid4">
+<div id="LayoutGrid4">
+<div class="row">
+<div class="col-1">
+<div id="wb_Icon1" style="display:inline-block;width:31px;height:24px;text-align:center;z-index:7;">
+<div id="Icon1"><i class="Icon1"></i></div>
+</div>
+</div>
+<div class="col-2">
+<a id="Button1" href="./auth/login" style="display:inline-block;width:209px;height:24px;z-index:8;">Войти / Зарегистрироваться</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
