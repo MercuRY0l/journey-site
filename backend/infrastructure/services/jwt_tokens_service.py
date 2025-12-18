@@ -1,14 +1,15 @@
 import jwt
+
 import os
+from dotenv import load_dotenv
 
 from datetime import datetime, timedelta, timezone
-from ..interfaces.jwt_tokens_interface import IJWTService
+from domain.interfaces.jwt_interface import IJWTService
 
-from dotenv import load_dotenv
 
 load_dotenv()
 
-SECRET_KEY = os.getenv("SECRET_KEY")
+SECRET_KEY = os.getenv(key="SECRET_KEY")
 
 class JwtTokensService(IJWTService):        
 

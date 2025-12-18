@@ -6,6 +6,10 @@ from presentation.routers.login_router import loginRouter
 from presentation.routers.register_router import regRouter
 from presentation.routers.other_routers import router
 
+from infrastructure.database.init_db import init_db
+
+init_db()
+
 app = FastAPI()
 
 origins = [

@@ -1,12 +1,7 @@
-
-
-
-
-
-from domain.interfaces.hash_interface import IHashService
+from domain.interfaces.hash_pass_interface import IHashPassService
 from argon2 import PasswordHasher
 from argon2.low_level import Type
-class HashService(IHashService):
+class HashPassService(IHashPassService):
     
     def __init__(self):
         self.ph = PasswordHasher(

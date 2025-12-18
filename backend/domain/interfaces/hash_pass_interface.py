@@ -1,7 +1,7 @@
 
 from abc import ABC, abstractmethod
 
-class IHashService(ABC):
+class IHashPassService(ABC):
     def __init__(self):
         pass
     

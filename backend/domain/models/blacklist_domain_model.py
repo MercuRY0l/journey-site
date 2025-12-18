@@ -3,7 +3,7 @@ from dataclasses import dataclass
 from datetime import datetime
 
 @dataclass
-class BlacklistDomainModel():
+class BlacklistDomainModel:
     id:int
     token:str
     token_type:str

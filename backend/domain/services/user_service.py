@@ -7,24 +7,17 @@ class UserModelService:
     def __init__(self, repository: IUserRepository):
         self.repo = repository
 
-    def create_user(self, username, email, password):
-        
-        user = UserDomainModel(username = username, email = email, password = password)
-        self.repo.create_user(user=user)
-        self.repo.commit()
-        return user
+    async def create_user(self, user: UserDomainModel):
+        return await self.repo.create_user(user=user)
        
-   
-    def delete_user(self, username : str): 
-        self.repo.delete_user(username=username)
-        self.repo.commit()
-    
+    async def delete_user(self, username : str): 
+        await self.repo.delete_user(username=username)
             
-    def get_user_by_username(self,username : str) -> str:
-        return self.repo.get_user_by_username(username=username)
+    async def get_user_by_username(self,username : str) -> str:
+        return await self.repo.get_user_by_username(username=username)
         
-    def get_user_by_email(self, email : str) -> str:
-       return self.repo.get_user_by_email(email=email)
+    async def get_user_by_email(self, email : str) -> str:
+        return await self.repo.get_user_by_email(email=email)
     
-    def get_user_by_user_id(self, user_id : int) -> str:
-        return self.repo.get_user_by_user_id(user_id=user_id)
+    async def get_user_by_user_id(self, user_id : int) -> str:
+        return await self.repo.get_user_by_user_id(user_id=user_id)

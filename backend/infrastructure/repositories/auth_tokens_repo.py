@@ -1,51 +1,79 @@
-
 from domain.interfaces.auth_tokens_interface import IAuthTokensRepository
 from domain.models.auth_tokens_domain_model import AuthTokensDomainModel
 
-from infrastructure.config.connector import SessionLocal
+from infrastructure.database.db_connector import SessionLocal
+from infrastructure.database.models.auth_tokens_model import AuthTokensModel
 
 from sqlalchemy import delete
+from sqlalchemy.future import select
 
+def orm_to_domain(orm: AuthTokensModel) -> AuthTokensDomainModel:
+    return AuthTokensDomainModel(
+        id=orm.id,
+        user_id=orm.user_id,
+        refresh_token=orm.refresh_token,
+        expires_at=orm.expires_at,
+        created_at=orm.created_at
+    )
 
 class AuthTokensRepository(IAuthTokensRepository):
-    
-    def __init__(self):
-        self.session = SessionLocal()
-        
-    def create_token(self, token: AuthTokensDomainModel) -> AuthTokensDomainModel:
-        
-        self.session.add(token)
-        self.session.commit()
-        self.session.refresh(token)
-        self.session.close()
-        
-        return token
-    
-    def delete_refresh_token(self, user_id : int, token: str):
-        pass
-    
-    def delete_refresh_by_id(self, id_token : int):
-        stmt = delete(AuthTokensDomainModel).where(AuthTokensDomainModel.id == id_token)
-        self.session.execute(stmt)
-        self.session.commit()
-        
-    def get_all_refresh_hashes(self, user_id: int) -> str:
-        query = self.session.query(
-            AuthTokensDomainModel.refresh_token,
-            AuthTokensDomainModel.id
-        ).filter(AuthTokensDomainModel.user_id == user_id)
 
-        return query.all()    
-    
-    def find_token_by_userid(self,user_id : int) -> str:
-        
-        return self.session.query(AuthTokensDomainModel).filter(AuthTokensDomainModel.user_id == user_id).first()
+    async def create_token(self, token: AuthTokensDomainModel) -> AuthTokensDomainModel:
+        async with SessionLocal() as session:
+            orm_token = AuthTokensModel(
+                user_id=token.user_id,
+                refresh_token=token.refresh_token,
+                expires_at=token.expires_at
+            )
+
+            session.add(orm_token)
+            await session.commit()
+            await session.refresh(orm_token)
+
+            return orm_to_domain(orm_token)
+
+    async def delete_refresh_by_id(self, token_id: int) -> None:
+        async with SessionLocal() as session:
+            stmt = delete(AuthTokensModel).where(AuthTokensModel.id == token_id)
+            await session.execute(stmt)
+            await session.commit()
+
+    async def delete_refresh_token(self, user_id: int, hashed_token: str) -> int:
+        async with SessionLocal() as session:
+            stmt = delete(AuthTokensModel).where(
+                AuthTokensModel.user_id == user_id,
+                AuthTokensModel.refresh_token == hashed_token
+            )            
+            res = await session.execute(stmt)
+            await session.commit()
+            return res.rowcount
+
+    async def get_all_refresh_hashes(self, user_id: int) -> list[tuple[str, int]]:
+        async with SessionLocal() as session:
+            stmt = select(
+                AuthTokensModel.refresh_token,
+                AuthTokensModel.id
+            ).where(AuthTokensModel.user_id == user_id)
+            res = await session.execute(stmt)
+            return res.scalars().all()
+
+    async def find_token_by_userid(self, user_id: int) -> AuthTokensDomainModel | None:
+        async with SessionLocal() as session:
+            stmt = select(AuthTokensModel).where(
+                AuthTokensModel.user_id == user_id
+            )
+
+            res = await session.execute(stmt)
+            orm_token = res.scalars().first()
             
-        
-    def find_token_by_refresh(self, refresh_token : str) -> str:    
-        
-        return self.session.query(AuthTokensDomainModel).filter(AuthTokensDomainModel.refresh_token == refresh_token).first()
-        
-    def close(self):
-        self.session.close()
-         
+            return orm_to_domain(orm_token) if orm_token else None 
+
+    async def find_token_by_refresh(self, refresh_token: str) -> AuthTokensDomainModel | None:
+        async with SessionLocal() as session:
+            stmt = select(AuthTokensModel).where(
+                AuthTokensModel.refresh_token == refresh_token
+            )
+
+            res = await session.execute(stmt)
+            orm_token = res.scalars().first()
+            return orm_to_domain(orm_token) if orm_token else None

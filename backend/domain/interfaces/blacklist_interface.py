@@ -6,17 +6,13 @@ class IBlacklistRepository(ABC):
         pass
     
     @abstractmethod
-    def create_blacklisted(self, blacklisted_token: BlacklistDomainModel) -> BlacklistDomainModel:
+    async def create_blacklisted(self, blacklisted_token: BlacklistDomainModel) -> BlacklistDomainModel:
         pass
     
     @abstractmethod
-    def delete_blacklisted_by_token(self, token: str):
+    async def delete_blacklisted_by_token(self, token: str):
         pass
     
     @abstractmethod
-    def find_blacklisted_by_token(self, token: str) -> str:
-        pass
-    
-    @abstractmethod
-    def close(self):
+    async def find_blacklisted_by_token(self, token: str) -> str:
         pass

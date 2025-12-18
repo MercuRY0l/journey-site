@@ -3,7 +3,7 @@ from dataclasses import dataclass
 from datetime import datetime
 
 @dataclass
-class UserDomainModel():
+class UserDomainModel:
     id:int
     username:str
     password:str

@@ -4,7 +4,7 @@ from dataclasses import dataclass
 from datetime import datetime
 
 @dataclass
-class AuthTokensDomainModel():
+class AuthTokensDomainModel:
     id:int
     user_id:int
     refresh_token:str

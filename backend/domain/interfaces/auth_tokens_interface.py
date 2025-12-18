@@ -8,29 +8,26 @@ class IAuthTokensRepository(ABC):
         pass
     
     @abstractmethod
-    def create_token(self, token: AuthTokensDomainModel) -> AuthTokensDomainModel:
+    async def create_token(self, token: AuthTokensDomainModel) -> AuthTokensDomainModel:
+        pass
+     
+    @abstractmethod
+    async def get_all_refresh_hashes(self,  user_id: int) -> str:
         pass
     
     @abstractmethod
-    def get_all_refresh_hashes(self,  user_id: int) -> str:
-        pass
-    
-    @abstractmethod
-    def delete_refresh_token(self, refresh_token : str):
+    async def delete_refresh_token(self, user_id: int , hashed_token : str) -> int:
         pass    
     
     @abstractmethod
-    def delete_refresh_by_id(self, token_id: int):
+    async def delete_refresh_by_id(self, token_id: int):
         pass
     
     @abstractmethod
-    def find_token_by_userid(self, user_id: int) -> str:
+    async def find_token_by_userid(self, user_id: int) -> str:
         pass
     
     @abstractmethod
-    def find_token_by_refresh(self, refresh_token: str) -> str:
+    async def find_token_by_refresh(self, refresh_token: str) -> str:
         pass
-    
-    @abstractmethod
-    def close(self):
-        pass
+     
