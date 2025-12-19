@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const result = await response.json();
 
       if (result.success) {
+        localStorage.setItem("username", result.username);
         showToast("Регистрация прошла успешно!", "success");
         form.reset();
         setTimeout(() => window.location.href = "/", 1500);

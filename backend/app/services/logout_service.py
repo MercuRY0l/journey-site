@@ -9,9 +9,9 @@ from domain.interfaces.log_interface import ILogRepo
 from domain.interfaces.brute_interface import IBruteService
 
 from domain.models.blacklist_domain_model import BlacklistDomainModel
+from domain.models.log_domain_model import LogDomainModel
 
 from app.dto.logout_dto import LogoutDTO
-
 from app.exceptions.logout_exceptions import TokenNotFound
 class LogoutService:
     
@@ -38,19 +38,19 @@ class LogoutService:
         
         
         if not refresh_token: 
-            self.log_service.create_log(event_type="Logout", username=None, user_id=None, status="Failed", ip=logout_dto.ip, reason="Выход невозможен, refresh токен не найден!")
+            await self.log_service.create_log(LogDomainModel(event_type="Logout", username=None, user_id=None, status="Failed", ip=logout_dto.ip, reason="Выход невозможен, refresh токен не найден!"))
             raise TokenNotFound()
             
         payload = self.jwt_service.decode_jwt_token(refresh_token)
         user_id = payload.get("user_id") if payload else None
-        user_in_db = self.db_user_service.get_user_by_user_id(user_id=user_id)
+        user_in_db = await self.db_user_service.get_user_by_user_id(user_id=user_id)
         
         hashed_token = self.hash_token_service.hash(refresh_token)
         
         
-        deleted = self.db_token_service.delete_refresh_token(user_id=user_id, hashed_token=hashed_token)
+        deleted = await self.db_token_service.delete_refresh_token(user_id=user_id, hashed_token=hashed_token)
         if not deleted:
-            self.log_service.create_log(event_type="Logout", username=user_in_db.username , user_id=user_in_db.id, status="Failed", ip=logout_dto.ip, reason="Выход невозможен, refresh токен не найден!")
+            await self.log_service.create_log(LogDomainModel(event_type="Logout", username=user_in_db.username , user_id=user_in_db.id, status="Failed", ip=logout_dto.ip, reason="Выход невозможен, refresh токен не найден!"))
             raise TokenNotFound() 
                     
         blacklisted_token = self.hash_token_service.hash(token=refresh_token)
@@ -66,9 +66,9 @@ class LogoutService:
             created_at=datetime.now(timezone.utc)
         )
         
-        self.db_blacklisted_service.create_blacklisted(blacklisted)
+        await self.db_blacklisted_service.create_blacklisted(blacklisted)
         
-        self.log_service.create_log(event_type="Logout", username = user_in_db.username, user_id=user_in_db.id, status="Success", ip=logout_dto.ip, reason="Успешный выход!")
+        await self.log_service.create_log(LogDomainModel(event_type="Logout", username = user_in_db.username, user_id=user_in_db.id, status="Success", ip=logout_dto.ip, reason="Успешный выход!"))
         return {"status" : "succses"}
                 
         
