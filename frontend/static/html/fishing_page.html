@@ -10,44 +10,6 @@
 <link rel = "stylesheet" href="/static/css/fishing.css">
 
 
-
-<script>
-$(document).ready(function()
-{
-   $('#reviewsImage1').addClass('visibility-hidden');
-   $('#portfolio-image2').addClass('visibility-hidden');
-   $("a[href*='#fishing_page']").click(function(event)
-   {
-      event.preventDefault();
-      $('html, body').stop().animate({ scrollTop: $('#wb_fishing_page').offset().top-88 }, 600, 'easeOutCirc');
-   });
-   $("a[href*='#fishing_page2']").click(function(event)
-   {
-      event.preventDefault();
-      $('html, body').stop().animate({ scrollTop: $('#wb_fishing_page2').offset().top-88 }, 600, 'easeOutCirc');
-   });
-   function onScrollfishing_page2()
-   {
-      var $obj = $("#wb_fishing_page2");
-      if (!$obj.hasClass("in-viewport") && $obj.inViewPort(false))
-      {
-         $obj.addClass("in-viewport");
-         AnimateCss('reviewsImage1', 'animate-fade-in-up', 0, 1000);
-         AnimateCss('portfolio-image2', 'animate-fade-in-up', 500, 1000);
-      }
-   }
-   onScrollfishing_page2();
-   $(window).scroll(function(event)
-   {
-      onScrollfishing_page2();
-   });
-   $("a[href*='#header']").click(function(event)
-   {
-      event.preventDefault();
-      $('html, body').stop().animate({ scrollTop: $('#wb_header').offset().top }, 600, 'easeOutCirc');
-   });
-});
-</script>
 </head>
 <body>
 <div id="wb_fishing_page">
@@ -94,49 +56,62 @@ $(document).ready(function()
 </div>
 </div>
 </div>
-<div id="wb_header">
-<div id="header">
-<div class="col-1">
-<div id="wb_Image3" style="display:inline-block;width:93px;height:93px;z-index:8;">
-<a href="./"><img src="/static/images/logo_img.png" id="Image3" alt="" width="93" height="93"></a>
-</div>
-</div>
-<div class="col-2">
-<div id="wb_LayoutGrid3">
-<div id="LayoutGrid3">
-<div class="col-1">
-<div id="wb_ResponsiveMenu1" style="display:block;width:100%;z-index:9;">
-<label class="toggle" for="ResponsiveMenu1-submenu" id="ResponsiveMenu1-title">Menu<span id="ResponsiveMenu1-icon"><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span></span></label>
-<input type="checkbox" id="ResponsiveMenu1-submenu">
-<ul class="ResponsiveMenu1" id="ResponsiveMenu1" role="menu">
-<li role="menuitem"><a href="./" class="nav-link">Главная</a></li>
-<li role="menuitem">
-<label for="ResponsiveMenu1-submenu-0" class="toggle">Услуги<span class="arrow-down"></span></label>
-<a href="javascript:void(0)" class="nav-link">Услуги<span class="arrow-down"></span></a>
-<input type="checkbox" id="ResponsiveMenu1-submenu-0">
-<ul role="menu">
-<li role="menuitem"><a href="./fishing" class="nav-link">Рыбалка</a></li>
-<li role="menuitem"><a href="./hunting" class="nav-link">Охота</a></li>
-</ul>
-</li>
-<li role="menuitem"><a href="./about" class="nav-link">О&nbsp;нас</a></li>
-<li role="menuitem"><a href="./contacts" class="nav-link">Контакты</a></li>
-</ul>
 
+<div id="wb_header">
+  <div id="header">
+    <div class="col-1">
+      <div id="wb_Image3" style="display:inline-block;width:93px;height:93px;z-index:5;">
+        <a href="./">
+          <img src="/static/images/logo_img.png" id="Image3" alt="" width="93" height="93">
+        </a>
+      </div>
+
+      <div id="wb_ResponsiveMenu1" style="display:flex;align-items:center;z-index:6;">
+        <label class="toggle" for="ResponsiveMenu1-submenu" id="ResponsiveMenu1-title">
+          Menu
+          <span id="ResponsiveMenu1-icon">
+            <span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span>
+          </span>
+        </label>
+
+        <input type="checkbox" id="ResponsiveMenu1-submenu">
+
+        <ul class="ResponsiveMenu1" id="ResponsiveMenu1" role="menu">
+          <li role="menuitem">
+            <a href="./" class="nav-link">Главная</a>
+          </li>
+
+          <li role="menuitem">
+            <label for="ResponsiveMenu1-submenu-0" class="toggle">
+              Услуги<span class="arrow-down"></span>
+            </label>
+            <a href="javascript:void(0)" class="nav-link">
+              Услуги<span class="arrow-down"></span>
+            </a>
+            <input type="checkbox" id="ResponsiveMenu1-submenu-0">
+            <ul role="menu">
+              <li role="menuitem"><a href="./fishing" class="nav-link">Рыбалка</a></li>
+              <li role="menuitem"><a href="./hunting" class="nav-link">Охота</a></li>
+            </ul>
+          </li>
+
+          <li role="menuitem"><a href="./about" class="nav-link">О нас</a></li>
+          <li role="menuitem"><a href="./contacts" class="nav-link">Контакты</a></li>
+        </ul>
+      </div>
+    </div>
+    
+  
+  
+    <div class="col-2">
+      <span id="userGreeting" style="color:#fff; margin-right:10px;"></span>
+      <a id="auth_btn" href="./auth/register" style="display:inline-block;padding:10px 20px;z-index:8;">Войти / Зарегистрироваться</a>
+    </div>
+  </div>
 </div>
-</div>
-<div class="col-2">
-<div id="wb_LayoutGrid4">
-<div id="LayoutGrid4">
-<div class="row">
-<div class="col-1">
-<div id="wb_Icon1" style="display:inline-block;width:31px;height:24px;text-align:center;z-index:10;">
-<div id="Icon1"><i class="Icon1"></i></div> 
-</div>
-</div>
-<div class="col-2">
-<a id="Button2" href="./auth/login" style="display:inline-block;width:209px;height:24px;z-index:11;">Войти / Зарегистрироваться</a>
-</div>
+
+<script src="/static/js/show_username.js"></script>
+
 </div>
 </div>
 </div>

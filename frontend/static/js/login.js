@@ -20,14 +20,11 @@ document.addEventListener("DOMContentLoaded", () => {
       const result = await response.json();
 
       if (result.success) {
+        localStorage.setItem("username", result.username);
         showToast("Успешный вход!", "success");
         form.reset();
 
         
-        if (result.access_token) {
-          localStorage.setItem("access_token", result.access_token);
-        }
-
         setTimeout(() => {
           window.location.href = "/";
         }, 1500);

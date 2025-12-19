@@ -376,111 +376,9 @@ html{
 {
    outline: 0;
 }
-#Button1
-{
-   box-sizing: border-box;
-   line-height: 36px;
-   text-decoration: none;
-   vertical-align: top;
-   border: 1px solid #000000;
-   border-radius: 4px;
-   background-color: #EEB519;
-   background-image: none;
-   color: #FFFFFF;
-   font-family: Arial;
-   font-weight: bold;
-   font-style: normal;
-   font-size: 13px;
-   padding: 1px 6px 1px 6px;
-   text-align: center;
-   -webkit-appearance: none;
-   margin: 0;
-}
-#Button1:focus
-{
-   outline: 0;
-}
-#wb_header
-{
-   clear: both;
-   position: fixed;
-   left: 0;
-   top: 0;
-   z-index: 7777;
-   table-layout: fixed;
-   display: table;
-   text-align: center;
-   width: 100%;
-   background-color: #27374D;
-   background-image: none;
-   border: 0px solid #CCCCCC;
-   border-radius: 0px;
-   box-sizing: border-box;
-   margin: 0;
-}
-#header
-{
-   box-sizing: border-box;
-   display: flex;
-   flex-direction: row;
-   flex-wrap: wrap;
-   padding: 10px 0 10px 0;
-   margin-right: auto;
-   margin-left: auto;
-}
-#header > .col-1, #header > .col-2
-{
-   box-sizing: border-box;
-   font-size: 0;
-   min-height: 1px;
-   padding-right: 15px;
-   padding-left: 15px;
-   position: relative;
-}
-#header > .col-1, #header > .col-2
-{
-   flex: 0 0 auto;
-}
-#header > .col-1
-{
-   background-color: transparent;
-   background-image: none;
-   border: 0px solid #FFFFFF;
-   border-radius: 0px;
-   flex-basis: 16.66666667%;
-   max-width: 16.66666667%;
-   display: flex;
-   flex-wrap: wrap;
-   align-content: center;
-   align-self: stretch;
-   align-items: center;
-   justify-content: center;
-   text-align: center;
-}
-#header > .col-2
-{
-   background-color: transparent;
-   background-image: none;
-   border: 0px solid #FFFFFF;
-   border-radius: 0px;
-   flex-basis: 83.33333333%;
-   max-width: 83.33333333%;
-   display: flex;
-   flex-wrap: wrap;
-   align-content: center;
-   align-self: stretch;
-   align-items: center;
-   justify-content: center;
-   text-align: center;
-}
-@media (max-width: 320px)
-{
-#header > .col-1, #header > .col-2
-{
-   flex-basis: 100% !important;
-   max-width: 100% !important;
-}
-}
+
+
+
 #wb_Image3
 {
    margin: 0;
@@ -724,328 +622,200 @@ html{
 {
    outline: 0;
 }
-#wb_ResponsiveMenu1
-{
-   display: block;
-   border: 1px solid #27374D;
-   box-sizing: border-box;
-   font-family: Arial;
-   font-weight: bold;
-   text-align: left;
-   width: 100%;
-   z-index: 1111 !important;
+
+
+#wb_header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  font-family: Verdana;
+  font-size: 15px;
 }
-#ResponsiveMenu1
-{
-   height: 71px;
+
+#header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  height: 100px;
+  background-color: #1f2a3a;
 }
-#wb_ResponsiveMenu1 ul
-{
-   list-style: none;
-   margin: 0;
-   padding: 0;
-   position: relative;
+
+
+#header > .col-1 {
+  display: flex;
+  align-items: center;
+  gap: 40px;
 }
-#wb_ResponsiveMenu1 ul:after
-{
-   clear: both;
-   content: "";
-   display: block;
+
+#header > .col-2 {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 20px;
 }
-#wb_ResponsiveMenu1 ul li
-{
-   border-radius: 0;
-   display: list-item;
-   float: left;
-   list-style: none;
-   z-index: 9999;
+
+
+#wb_Image3 img {
+  display: block;
+  max-height: 80px;
+  width: auto;
 }
-#wb_ResponsiveMenu1 ul li i
-{
-   font-size: 24px;
-   width: 24px;
-   margin-bottom: 2px;
+
+
+#wb_ResponsiveMenu1 {
+  display: flex;
+  align-items: center;
 }
-#wb_ResponsiveMenu1 ul li a
-{
-   background-color: #27374D;
-   color: #FFFFFF;
-   font-family: Arial;
-   font-weight: bold;
-   font-size: 13px;
-   font-style: normal;
-   text-decoration: none;
-   text-transform: none;
-   padding: 15px 30px 15px 30px;
-   text-align: center;
+
+
+.ResponsiveMenu1 {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 25px;
+  align-items: center;
 }
-#wb_ResponsiveMenu1 > ul > li > a 
-{
-   margin-right: 10px;
-   height: 41px;
+
+.ResponsiveMenu1 > li {
+  position: relative;
 }
-.ResponsiveMenu1 a 
-{
-   display: block;
+
+
+.ResponsiveMenu1 a.nav-link {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px 15px;
+  display: block;
+  transition: background 0.3s;
 }
-#wb_ResponsiveMenu1 li:hover > a, #wb_ResponsiveMenu1 li .active
-{
-   background-color: #324A63;
-   color: #C0C0C0;
+
+.ResponsiveMenu1 a.nav-link:hover {
+  background-color: #1f2a3a;
+  border-radius: 6px;
 }
-#wb_ResponsiveMenu1 ul ul
-{
-   display: none;
-   position: absolute;
-   top: 71px;
+
+
+.ResponsiveMenu1 ul {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #27374D;
+  list-style: none;
+  padding: 10px 0;
+  margin: 0;
+  min-width: 160px;
+  display: none;
+  border-radius: 8px;
+  z-index: 9999;
 }
-#wb_ResponsiveMenu1 ul li:hover > ul
-{
-   display: list-item;
+
+.ResponsiveMenu1 ul li a {
+  padding: 10px 20px;
+  white-space: nowrap;
 }
-#wb_ResponsiveMenu1 ul ul li 
-{
-   float: none;
-   position: relative;
-   width: 156px;
+
+.ResponsiveMenu1 li:hover > ul {
+  display: block;
 }
-#wb_ResponsiveMenu1 ul ul li a
-{
-   background-color: #27374D;
-   border: 0px solid #27374D;
-   color: #FFFFFF;
+
+
+.toggle {
+  display: none;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 10px 15px;
 }
-#wb_ResponsiveMenu1 ul ul li:hover > a, #wb_ResponsiveMenu1 ul ul li .active
-{
-   background-color: #324A63;
-   color: #C0C0C0;
+
+#ResponsiveMenu1-icon span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #fff;
+  margin: 4px 0;
 }
-#wb_ResponsiveMenu1 ul ul li i 
-{
-   margin-right: 8px;
-   vertical-align: middle;
+
+
+#auth_btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #ffffff65;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 6px;
+  transition: background 0.3s;
 }
-#wb_ResponsiveMenu1 ul ul li a 
-{
-   padding-top: 15px;
-   padding-right: 20px;
-   padding-bottom: 15px;
-   text-align: left;
-   vertical-align: middle;
+
+#auth_btn:hover {
+  background-color: #FFB300;
+  color: #000;
 }
-#wb_ResponsiveMenu1 ul ul ul li 
-{
-   left: 156px;
-   position: relative;
-   top: -71px;
+
+@media (max-width: 768px) {
+
+  #header {
+    flex-direction: column;
+    height: auto;
+    padding: 10px 20px;
+  }
+
+  #header > .col-1,
+  #header > .col-2 {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .toggle {
+    display: inline-block;
+  }
+
+  .ResponsiveMenu1 {
+    flex-direction: column;
+    display: none;
+    width: 100%;
+    background-color: #27374D;
+    margin-top: 10px;
+    border-radius: 10px;
+  }
+
+  .ResponsiveMenu1 > li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .ResponsiveMenu1 ul {
+    position: static;
+    display: none;
+    width: 100%;
+    background-color: #1f2a3a;
+  }
+
+  .ResponsiveMenu1 li:hover > ul {
+    display: none;
+  }
+
+  #ResponsiveMenu1-submenu:checked + .ResponsiveMenu1 {
+    display: flex;
+  }
+
+  #ResponsiveMenu1-submenu-0:checked + ul {
+    display: block;
+  }
 }
-#wb_ResponsiveMenu1 .arrow-down 
-{
-   display: inline-block;
-   width: 0;
-   height: 0;
-   margin-left: 2px;
-   vertical-align: middle;
-   border-top: 4px solid #FFFFFF;
-   border-right: 4px solid transparent;
-   border-left: 4px solid transparent;
-   border-bottom: 0 dotted;
+
+#ResponsiveMenu1-submenu,
+#ResponsiveMenu1-submenu-0 {
+  display: none;
 }
-#wb_ResponsiveMenu1 .arrow-left 
-{
-   display: inline-block;
-   width: 0;
-   height: 0;
-   margin-left: 2px;
-   vertical-align: middle;
-   border-left: 4px solid #FFFFFF;
-   border-top: 4px solid transparent;
-   border-bottom: 4px solid transparent;
-   border-right: 0 dotted;
-}
-#wb_ResponsiveMenu1 li:hover > a .arrow-down, #wb_ResponsiveMenu1 li .active .arrow-down
-{ 
-   border-top-color: #C0C0C0;
-}
-#wb_ResponsiveMenu1 ul ul li:hover > a .arrow-left, #wb_ResponsiveMenu1 ul ul li .active .arrow-left
-{ 
-   border-left-color: #C0C0C0;
-}
-#wb_ResponsiveMenu1 .toggle,[id^=ResponsiveMenu1-submenu]
-{
-   display: none;
-}
-@media all and (max-width:768px) 
-{
-#wb_ResponsiveMenu1
-{
-   margin: 0;
-   text-align: left;
-}
-#wb_ResponsiveMenu1 ul li a, #wb_ResponsiveMenu1 .toggle
-{
-   font-size: 13px;
-   font-weight: bold;
-   font-style: normal;
-   text-decoration: none;
-   text-transform: none;
-   padding: 15px 20px 15px 20px;
-}
-#wb_ResponsiveMenu1 .toggle + a
-{
-   display: none !important;
-}
-.ResponsiveMenu1 
-{
-   display: none;
-   z-index: 9999;
-}
-#ResponsiveMenu1 
-{
-   background-color: transparent;
-}
-#wb_ResponsiveMenu1 > ul > li > a 
-{
-   height: auto !important;
-   margin: 0;
-}
-#wb_ResponsiveMenu1 .toggle 
-{
-   display: block;
-   background-color: #27374D;
-   color: #FFFFFF;
-   padding: 0 20px 0 20px;
-   line-height: 54px;
-   text-decoration: none;
-   border: none;
-   position: relative;
-}
-#wb_ResponsiveMenu1 .toggle:hover
-{
-   background-color: #324A63;
-   color: #C0C0C0;
-}
-[id^=ResponsiveMenu1-submenu]:checked + ul 
-{
-   display: block !important;
-}
-#ResponsiveMenu1-title
-{
-   height: 71px !important;
-   line-height: 71px !important;
-   text-align: center;
-}
-#wb_ResponsiveMenu1 ul li 
-{
-   display: block;
-   width: 100% !important;
-   text-align: center;
-}
-#wb_ResponsiveMenu1 ul ul .toggle,
-#wb_ResponsiveMenu1 ul ul a 
-{
-   padding: 0 40px;
-}
-#wb_ResponsiveMenu1 a:hover,
-#wb_ResponsiveMenu1 ul ul ul a 
-{
-   background-color: #27374D;
-   color: #FFFFFF;
-}
-#wb_ResponsiveMenu1 ul li ul li .toggle,
-#wb_ResponsiveMenu1 ul ul a 
-{
-   background-color: #27374D;
-   color: #FFFFFF;
-}
-#wb_ResponsiveMenu1 ul ul ul a 
-{
-   padding: 15px 20px 15px 60px;
-}
-#wb_ResponsiveMenu1 ul li a 
-{
-   text-align: center;
-}
-#wb_ResponsiveMenu1 ul li a br 
-{
-   display: none;
-}
-#wb_ResponsiveMenu1 ul li i 
-{
-   margin-right: 8px;
-}
-#wb_ResponsiveMenu1 ul ul 
-{
-   float: none;
-   position: static;
-}
-#wb_ResponsiveMenu1 ul ul li:hover > ul,
-#wb_ResponsiveMenu1 ul li:hover > ul 
-{
-   display: none;
-}
-#wb_ResponsiveMenu1 ul ul li 
-{
-   display: block;
-   width: 100%;
-}
-#wb_ResponsiveMenu1 ul ul ul li 
-{
-   position: static;
-}
-#ResponsiveMenu1-icon 
-{
-   display: block;
-   position: absolute;
-   left: 30px;
-   top: 23px;
-   user-select: none;
-}
-#ResponsiveMenu1-icon span 
-{
-   display: block;
-   margin-top: 4px;
-   height: 2px;
-   background-color: #FFFFFF;
-   color: #FFFFFF;
-   width: 24px;
-}
-#wb_ResponsiveMenu1 ul li ul li .toggle:hover
-{
-   background-color: #324A63;
-   color: #C0C0C0;
-}
-#wb_ResponsiveMenu1 .toggle .arrow-down 
-{
-   border-top-color: #FFFFFF;
-}
-#wb_ResponsiveMenu1 .toggle:hover .arrow-down, #wb_ResponsiveMenu1 li .active .arrow-down
-{
-   border-top-color: #C0C0C0;
-}
-#wb_ResponsiveMenu1 ul li ul li .toggle .arrow-down 
-{
-   border-top-color: #FFFFFF;
-}
-#wb_ResponsiveMenu1 ul li ul li .toggle:hover .arrow-down, #wb_ResponsiveMenu1 ul li ul li .active .arrow-down
-{
-   border-top-color: #C0C0C0;
-}
-}
-#ResponsiveMenu1 i
-{
-   position: relative;
-   left: 0;
-   top: 0;
-   display: inline-block;
-   font-family: "Material Icons";
-   font-weight: normal;
-   font-style: normal;
-   line-height: 1;
-}
-.darktheme #wb_fishing_page,
-.darktheme #wb_fishing_page2,
-.darktheme #wb_header
-{
-   filter: invert(100%);
+
+#wb_Image3 img {
+  display: block;
+  max-height: 80px;
+  width: auto;
 }

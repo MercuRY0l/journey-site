@@ -6,8 +6,8 @@
 <meta name="generator" content="WYSIWYG Web Builder 20 - https://www.wysiwygwebbuilder.com">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&700,400&display=swap" rel="stylesheet">
-<link href="/static/css/about_us2.css" rel="stylesheet">
-<link href="/static/css/about_us1.css" rel="stylesheet">
+<link href="/static/css/about_us.css" rel="stylesheet">
+
 <script src="js/jquery-3.7.1.min.js"></script>
 <script src="js/jquery.ui.effect.min.js"></script>
 <script>
@@ -68,49 +68,64 @@ $(document).ready(function()
 </div>
 </div>
 </div>
-<div id="wb_header">
-<div id="header">
-<div class="col-1">
-<div id="wb_Image3" style="display:inline-block;width:93px;height:93px;z-index:5;">
-<a href="./"><img src="/static/images/logo_img.png" id="Image3" alt="" width="93" height="93"></a>
-</div>
-</div>
-<div class="col-2">
-<div id="wb_LayoutGrid3">
-<div id="LayoutGrid3">
-<div class="col-1">
-<div id="wb_ResponsiveMenu1" style="display:block;width:100%;z-index:6;">
-<label class="toggle" for="ResponsiveMenu1-submenu" id="ResponsiveMenu1-title">Menu<span id="ResponsiveMenu1-icon"><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span></span></label>
-<input type="checkbox" id="ResponsiveMenu1-submenu">
-<ul class="ResponsiveMenu1" id="ResponsiveMenu1" role="menu">
-<li role="menuitem"><a href="./" class="nav-link">Главная</a></li>
-<li role="menuitem">
-<label for="ResponsiveMenu1-submenu-0" class="toggle">Услуги<span class="arrow-down"></span></label>
-<a href="javascript:void(0)" class="nav-link">Услуги<span class="arrow-down"></span></a>
-<input type="checkbox" id="ResponsiveMenu1-submenu-0">
-<ul role="menu">
-<li role="menuitem"><a href="./fishing" class="nav-link">Рыбалка</a></li>
-<li role="menuitem"><a href="./hunting" class="nav-link">Охота</a></li>
-</ul>
-</li>
-<li role="menuitem"><a href="#" class="nav-link">О&nbsp;нас</a></li>
-<li role="menuitem"><a href="./contacts" class="nav-link">Контакты</a></li>
-</ul>
 
+
+<div id="wb_header">
+  <div id="header">
+    <div class="col-1">
+      <div id="wb_Image3" style="display:inline-block;width:93px;height:93px;z-index:5;">
+        <a href="./">
+          <img src="/static/images/logo_img.png" id="Image3" alt="" width="93" height="93">
+        </a>
+      </div>
+
+      <div id="wb_ResponsiveMenu1" style="display:flex;align-items:center;z-index:6;">
+        <label class="toggle" for="ResponsiveMenu1-submenu" id="ResponsiveMenu1-title">
+          Menu
+          <span id="ResponsiveMenu1-icon">
+            <span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span>
+          </span>
+        </label>
+
+        <input type="checkbox" id="ResponsiveMenu1-submenu">
+
+        <ul class="ResponsiveMenu1" id="ResponsiveMenu1" role="menu">
+          <li role="menuitem">
+            <a href="./" class="nav-link">Главная</a>
+          </li>
+
+          <li role="menuitem">
+            <label for="ResponsiveMenu1-submenu-0" class="toggle">
+              Услуги<span class="arrow-down"></span>
+            </label>
+            <a href="javascript:void(0)" class="nav-link">
+              Услуги<span class="arrow-down"></span>
+            </a>
+            <input type="checkbox" id="ResponsiveMenu1-submenu-0">
+            <ul role="menu">
+              <li role="menuitem"><a href="./fishing" class="nav-link">Рыбалка</a></li>
+              <li role="menuitem"><a href="./hunting" class="nav-link">Охота</a></li>
+            </ul>
+          </li>
+
+          <li role="menuitem"><a href="./about" class="nav-link">О нас</a></li>
+          <li role="menuitem"><a href="./contacts" class="nav-link">Контакты</a></li>
+        </ul>
+      </div>
+    </div>
+
+    
+  
+  
+    <div class="col-2">
+      <span id="userGreeting" style="color:#fff; margin-right:10px;"></span>
+      <a id="auth_btn" href="./auth/register" style="display:inline-block;padding:10px 20px;z-index:8;">Войти / Зарегистрироваться</a>
+    </div>
+  </div>
 </div>
-</div>
-<div class="col-2">
-<div id="wb_LayoutGrid4">
-<div id="LayoutGrid4">
-<div class="row">
-<div class="col-1">
-<div id="wb_Icon1" style="display:inline-block;width:31px;height:24px;text-align:center;z-index:7;">
-<div id="Icon1"><i class="Icon1"></i></div>
-</div>
-</div>
-<div class="col-2">
-<a id="Button1" href="./auth/register" style="display:inline-block;width:209px;height:24px;z-index:8;">Войти / Зарегистрироваться</a>
-</div>
+
+<script src="/static/js/show_username.js"></script>
+
 </div>
 </div>
 </div>
