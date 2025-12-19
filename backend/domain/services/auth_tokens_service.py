@@ -10,7 +10,7 @@ class AuthTokensModelService:
         return await self.repo.create_token(token=token)
         
     async def delete_refresh_token(self, user_id: int, hashed_token: str) -> int:
-        return await self.repo.delete_refresh_token(user_id=user_id, token=hashed_token)
+        return await self.repo.delete_refresh_token(user_id=user_id, hashed_token=hashed_token)
         
     async def find_token_by_userid(self,user_id): 
         return await self.repo.find_token_by_userid(user_id=user_id)

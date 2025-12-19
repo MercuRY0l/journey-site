@@ -5,6 +5,7 @@ from fastapi.staticfiles import StaticFiles
 from presentation.routers.login_router import loginRouter
 from presentation.routers.register_router import regRouter
 from presentation.routers.other_routers import router
+from presentation.routers.logout_router import logout_router
 
 from infrastructure.database.init_db import init_db
 
@@ -20,6 +21,8 @@ origins = [
 app.include_router(loginRouter)
 app.include_router(regRouter)
 app.include_router(router)
+app.include_router(logout_router)
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins = origins,
