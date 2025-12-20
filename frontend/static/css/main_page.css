@@ -847,6 +847,12 @@ html{
    -webkit-appearance: none;
    margin: 0;
 }
+
+#Button4:hover{
+   background-color: #ffffff65;
+   color: #000;
+}
+
 #Button4:focus
 {
    outline: 0;
@@ -871,6 +877,12 @@ html{
    -webkit-appearance: none;
    margin: 0;
 }
+
+#Button3:hover{
+   background-color: #ffffff65;
+   color: #000;
+}
+
 #Button3:focus
 {
    outline: 0;
@@ -895,6 +907,13 @@ html{
    -webkit-appearance: none;
    margin: 0;
 }
+
+#Button2:hover{
+   background-color: #ffffff65;
+   color: #000;
+}
+
+
 #Button2:focus
 {
    outline: 0;
@@ -1645,8 +1664,9 @@ html{
 }
 
 .ResponsiveMenu1 a.nav-link:hover {
-  background-color: #1f2a3a;
+  background-color: #EEB519;
   border-radius: 6px;
+  color:#000
 }
 
 
@@ -1763,3 +1783,4 @@ html{
 #ResponsiveMenu1-submenu-0 {
   display: none;
 }
+

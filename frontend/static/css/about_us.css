@@ -1,7 +1,7 @@
 body
 {
    background-color: #FFFFFF;
-   color: #000000;
+   color: #1B262C;
    font-family: Arial;
    font-weight: normal;
    font-size: 16px;
@@ -9,6 +9,13 @@ body
    margin: 0;
    padding: 0;
 }
+
+
+#teamLayoutGrid, #teamCardContainer {
+    width: 100%;
+    box-sizing: border-box;
+}
+
 #wb_teamLayoutGrid
 {
    clear: both;
@@ -695,9 +702,11 @@ body
 }
 
 .ResponsiveMenu1 a.nav-link:hover {
-  background-color: #1f2a3a;
+  background-color: #EEB519;
   border-radius: 6px;
+  color:#000
 }
+
 
 
 .ResponsiveMenu1 ul {
