@@ -9,6 +9,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel = "stylesheet" href="/static/css/fishing.css">
 
+<script src="/static/js/feed_back.js" defer></script>
+<script src="/static/js/show_username.js" defer></script>
 
 </head>
 <body>
@@ -28,9 +30,15 @@
 </div>
 <div id="wb_reviewsText1">
 <span style="color:#FFFFFF;"><br><strong>Лето в Карелии </strong>— сезон ярких рассветов, прозрачных вод и богатых уловов. Мы организуем рыболовные туры по самым живописным и рыбным местам региона — от уютных озёр до огромных акваторий.<br><br><strong>Что ловим летом</strong><br><strong>Щука</strong> — активна на рассвете, атакует блесну и живца;<br><strong>Окунь</strong> — встречается повсюду, отлично клюёт на вертушки;<br><strong>Судак</strong> — предпочитает глубины крупных озёр;<br><strong>Плотва, лещ, язь </strong>— любимая добыча любителей поплавочной ловли.<br><br><strong>Где проходит рыбалка</strong><br>Популярные направления летних туров:<br>Онежское и Ладожское озёра — судак, щука, сиг;<br>Река Шуя — спиннинговая рыбалка, форель, хариус;<br>Озёра Сямозеро, Пяозеро, Сегозеро, Ведлозеро — отличное сочетание клёва и тишины северной природы.<br><br><strong>Что входит в тур</strong><br>проживание в домиках или палатках;<br>аренда лодок и снастей;<br>сопровождение егеря;<br>приготовление улова прямо на берегу (уха, жарка, копчение).<br></span>
+
 </div>
-<a id="Button3" href="./contacts" style="display:inline-block;width:141px;height:40px;z-index:3;">Забронировать</a>
+<button class="openModalBtn" style="display:inline-block;width:141px;height:40px;z-index:3;">Забронировать</button>
 </div>
+
+
+
+
+
 </div>
 </div>
 </div>
@@ -43,9 +51,27 @@
 </div>
 <div id="wb_reviewsText2">
 <span style="color:#FFFFFF;">Когда Карелию покрывает лёд, начинается другой, не менее захватывающий сезон — подледная рыбалка. Снежные просторы, кристально чистый воздух, потрескивание льда и горячий чай у лунки — всё это создаёт особую атмосферу северного отдыха.<br><br><strong>Что ловим зимой</strong><br><br><strong>Окунь </strong>— активен всю зиму, отлично идёт на мормышку;<br><strong>Щука </strong>— добыча для терпеливых, ловится на жерлицы и блесну;<br><strong>Сиг, ряпушка, форель </strong>— настоящие деликатесы для трофейной рыбалки;<br><strong>Плотва и лещ </strong>— стабильный клёв на прикормленных местах.<br><br><strong>Лучшие локации</strong><br><br><strong>Сямозеро, Пяозеро, Линдозеро, Кончезеро </strong>— стабильный клёв и живописные виды;<br><strong>Онежское и Ладожское озёра </strong>— шанс поймать крупную щуку и сига;<br><strong>Малые озёра рядом с Петрозаводском </strong>— идеально для коротких выездов и семейных туров.<br><br><strong>В тур входит</strong><br><br>трансфер к водоёму и обратно;<br>снасти, палатки, буры и всё необходимое оборудование;<br>сопровождение гида;<br>горячие напитки и обед прямо на льду;<br>фотосессия и приготовление свежей ухи.</span>
+
 </div>
-<a id="Button1" href="./contacts" style="display:inline-block;width:141px;height:40px;z-index:6;">Забронировать</a>
+<button class="openModalBtn" style="display:inline-block;width:141px;height:40px;z-index:6;">Забронировать</button>
 </div>
+
+<div id="modalOverlay" class="modal-overlay">
+  <div class="modal">
+    <h2>Обратная связь</h2>
+    <form id="feedbackForm">
+      <input type="text" name="name" placeholder="Ваше имя" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <textarea name="message" placeholder="Текст обращения" required></textarea>
+
+      <div class="modal-actions">
+        <button type="submit">Отправить</button>
+        <button type="button" id="closeModal">Отмена</button>
+      </div>
+    </form>
+  </div>
+</div>
+
 </div>
 <div class="col-2">
 <div class="col-2-padding">
@@ -110,7 +136,6 @@
   </div>
 </div>
 
-<script src="/static/js/show_username.js"></script>
 
 </div>
 </div>

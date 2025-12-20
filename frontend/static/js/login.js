@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       const result = await response.json();
+      console.log(result);
 
       if (result.success) {
         localStorage.setItem("username", result.username);

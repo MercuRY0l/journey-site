@@ -71,7 +71,7 @@ async def login_for_accsess_token(request : Request, data : LoginDTO, service = 
         
         response = JSONResponse({
             "success": True,
-            "access_token": tokens.access_token,
+            "username" : login_dto.username
         })
         
         response.set_cookie(

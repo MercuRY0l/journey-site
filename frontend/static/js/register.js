@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const result = await response.json();
 
-      if (result.success) {
+      if (result.success && result.username) {
         localStorage.setItem("username", result.username);
         showToast("Регистрация прошла успешно!", "success");
         form.reset();
