@@ -23,8 +23,6 @@ from infrastructure.repositories.user_repo import UserRepository
 from infrastructure.repositories.auth_tokens_repo import AuthTokensRepository
 from infrastructure.repositories.log_repo import LogRepo
 
-from pydantic import BaseModel, EmailStr
-
 from domain.services.log_service import LogService
 
 regRouter = APIRouter()
@@ -82,10 +80,11 @@ async def create_user(request : Request,
         
         response.set_cookie(
             key="refresh_token",
+            path="/",
             value = tokens.refresh_token,
-            secure=True,
+            secure=False,
             httponly=True,
-            samesite="lax"
+            samesite="Lax"
             
         )
         

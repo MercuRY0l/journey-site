@@ -648,8 +648,9 @@ html{
 }
 
 .ResponsiveMenu1 a.nav-link:hover {
-  background-color: #1f2a3a;
+  background-color: #EEB519;
   border-radius: 6px;
+  color: #000;
 }
 
 
@@ -672,13 +673,9 @@ html{
   white-space: nowrap;
 }
 
-.ResponsiveMenu1 a.nav-link:hover {
-  background-color: #EEB519;
-  border-radius: 6px;
-  color:#000
+.ResponsiveMenu1 li:hover > ul {
+  display: block;
 }
-
-
 .toggle {
   display: none;
   color: #fff;

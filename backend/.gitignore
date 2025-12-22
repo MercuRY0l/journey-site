@@ -5,6 +5,7 @@ __pycache__/
 *.so
 
 # Virtual environment
+/.env
 .venv/
 venv/
 env/
@@ -30,3 +31,5 @@ htmlcov/
 *.log
 *.tmp
 *.sqlite3
+
+

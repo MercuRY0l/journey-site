@@ -1,3 +1,17 @@
+async function isAuthorized() {
+  try {
+    const res = await fetch("/auth/me", {
+      method: "GET",
+      credentials: "include"
+    });
+
+    return res.ok;
+  } catch {
+    return false;
+  }
+}
+
+
 document.addEventListener("DOMContentLoaded", () => {
   const overlay = document.getElementById("modalOverlay");
   const openBtns = document.querySelectorAll(".openModalBtn");
@@ -5,10 +19,21 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("feedbackForm");
 
   openBtns.forEach(btn => {
-    btn.addEventListener("click", () => {
-      overlay.classList.add("active");
-    });
+  btn.addEventListener("click", async (e) => {
+    const authorized = await isAuthorized();
+
+    if (!authorized) {
+      e.preventDefault();
+      showToast(
+        "Для этого действия необходимо войти или зарегистрироваться",
+        "failed"
+      );
+      return;
+    }
+
+    overlay.classList.add("active");
   });
+});
 
   closeBtn.addEventListener("click", () => {
     overlay.classList.remove("active");
@@ -39,10 +64,10 @@ document.addEventListener("DOMContentLoaded", () => {
         overlay.classList.remove("active");
         form.reset();
       } else {
-        showToast("Сообщение не отправлено!", type="failed");
+        showToast("Сообщение не отправлено!", "failed");
       }
     } catch {
-      showToast("Сообщение не отправлено!", type="failed");
+      showToast("Сообщение не отправлено!", "failed");
 
     }
   });

@@ -1,6 +1,6 @@
 
 from fastapi.routing import APIRouter
-from fastapi import Depends
+from fastapi import Depends, Response
 from fastapi.requests import Request
 from fastapi.responses import JSONResponse
 from fastapi.templating import Jinja2Templates
@@ -48,7 +48,7 @@ def get_logout_service():
 
 
 @logout_router.post("/auth/logout")
-async def logout(request: Request,  service=Depends(get_logout_service)):
+async def logout(response: Response, request: Request,  service=Depends(get_logout_service)):
     
     refesh_token = request.cookies.get("refresh_token") or request.cookies.get("refresh")
     ip = request.client.host
@@ -60,7 +60,15 @@ async def logout(request: Request,  service=Depends(get_logout_service)):
     
     try:
         await service.logout(logout_dto=dto)
-        return JSONResponse({"status" : "success" , "message" : "Пользователь успешно вышел из аккаунта"})
+        
+        response.delete_cookie(key="refresh_token", 
+                               path="/",
+                               httponly=True,
+                               secure=False,
+                               samesite="Lax") 
+        
+        response = JSONResponse({"status" : "success" , "message" : "Пользователь успешно вышел из аккаунта"})
+        return response
         
     except Exception as e:
         print(e)

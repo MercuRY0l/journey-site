@@ -76,15 +76,14 @@ async def login_for_accsess_token(request : Request, data : LoginDTO, service = 
         
         response.set_cookie(
             key = 'refresh_token', 
+            path="/",
             value = tokens.refresh_token,
             httponly=True,
-            secure=True,
-            samesite="lax"
+            secure=False,
+            samesite="Lax"
         )
         
-        
         return response
-        
         
     except Exception as e:
         traceback.print_exc()

@@ -3,25 +3,28 @@ import httpx
 from dotenv import load_dotenv
 
 from fastapi import APIRouter
+from fastapi import HTTPException, Request, status
 from pydantic import BaseModel
 
 load_dotenv()
 BOT_TOKEN = os.getenv(key="BOT_TOKEN")
 CHAT_ID = os.getenv(key="CHAT_ID")
 
-print(f"BOT_TOKEN={BOT_TOKEN!r}")
-print(f"CHAT_ID={CHAT_ID!r}")
-
 feedback_router = APIRouter()
+    
 
 class FeedBackModel(BaseModel):
     name : str
     email : str
     message : str
 
-
 @feedback_router.post("/feedback")
-async def feedback(data : FeedBackModel):
+async def feedback(request: Request, data : FeedBackModel):
+    
+    refresh_token = request.cookies.get("refresh_token") or request.cookies.get("refresh")
+    if not refresh_token:
+        raise HTTPException(status_code=status.HTTP_405_METHOD_NOT_ALLOWED)
+
     text_from_user = f"""
 📩 Новое сообщение от пользователя
 👤 Имя: {data.name}

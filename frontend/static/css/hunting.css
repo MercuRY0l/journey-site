@@ -588,8 +588,9 @@ html{
 }
 
 .ResponsiveMenu1 a.nav-link:hover {
-  background-color: #1f2a3a;
+  background-color: #EEB519;
   border-radius: 6px;
+  color: #000;
 }
 
 
@@ -746,6 +747,9 @@ html{
 {
    outline: 0;
    
+}
+.openModalBtn.locked {
+  opacity: 0.6;
 }
 
 
