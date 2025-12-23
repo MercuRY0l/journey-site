@@ -79,8 +79,17 @@ async def login_for_accsess_token(request : Request, data : LoginDTO, service = 
             path="/",
             value = tokens.refresh_token,
             httponly=True,
-            secure=False,
-            samesite="Lax"
+            secure=True,
+            samesite="lax"
+        )
+        
+        response.set_cookie(
+            key='access_token',
+            path='/',
+            value=tokens.access_token,
+            httponly=True,
+            secure=True,
+            samesite='lax'
         )
         
         return response

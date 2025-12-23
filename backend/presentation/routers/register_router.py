@@ -75,17 +75,27 @@ async def create_user(request : Request,
     
         response = JSONResponse({
             "success": True,
-            "username" : reg_dto.username
+            "username" : reg_dto.username,
+            "email" : reg_dto.email
         })
         
         response.set_cookie(
             key="refresh_token",
             path="/",
             value = tokens.refresh_token,
-            secure=False,
+            secure=True,
             httponly=True,
             samesite="Lax"
             
+        )
+        
+        response.set_cookie(
+            key='access_token',
+            path='/',
+            value=tokens.access_token,
+            httponly=True,
+            secure=True,
+            samesite='lax'
         )
         
         return response

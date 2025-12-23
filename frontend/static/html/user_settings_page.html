@@ -1,11 +1,30 @@
-
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
   <title>Настройки профиля</title>
   <link rel="stylesheet" href="/static/css/user_settings.css">
+  <script>
+    
+    const username = localStorage.getItem("username") || "None";
+    const email = localStorage.getItem("email") || "None";
+
+    
+    window.addEventListener("DOMContentLoaded", () => {
+      
+      const valueSpans = document.querySelectorAll(".setting-card .value");
+
+      
+      if (valueSpans[0]) {
+        valueSpans[0].textContent = username;
+      }
+
+      
+      if (valueSpans[1]) {
+        valueSpans[1].textContent = email;
+      }
+    });
+  </script>
 </head>
 <body>
 
@@ -15,12 +34,11 @@
 
   <h1>Настройки профиля</h1>
 
- 
   <div class="setting-card">
     <div class="card-header">
       <div>
         <span class="label">Логин</span>
-        <span class="value">username123</span>
+        <span class="value"></span>
       </div>
       <button class="edit-btn" data-target="username">Изменить</button>
     </div>
@@ -31,12 +49,11 @@
     </form>
   </div>
 
-  
   <div class="setting-card">
     <div class="card-header">
       <div>
         <span class="label">Email</span>
-        <span class="value">user@mail.com</span>
+        <span class="value"></span>
       </div>
       <button class="edit-btn" data-target="email">Изменить</button>
     </div>
@@ -48,7 +65,6 @@
     </form>
   </div>
 
-  
   <div class="setting-card">
     <div class="card-header">
       <div>
@@ -71,6 +87,3 @@
 <script src="/static/js/settings.js"></script>
 </body>
 </html>
-
-
-

@@ -22,7 +22,8 @@ class FeedBackModel(BaseModel):
 async def feedback(request: Request, data : FeedBackModel):
     
     refresh_token = request.cookies.get("refresh_token") or request.cookies.get("refresh")
-    if not refresh_token:
+    access_token = request.cookies.get("access_token") or request.cookies.get("access")
+    if not refresh_token or not access_token:
         raise HTTPException(status_code=status.HTTP_405_METHOD_NOT_ALLOWED)
 
     text_from_user = f"""

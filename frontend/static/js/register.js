@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (result.success && result.username) {
         localStorage.setItem("username", result.username);
+        localStorage.setItem("email", result.email)
         showToast("Регистрация прошла успешно!", "success");
         form.reset();
         setTimeout(() => window.location.href = "/", 1500);

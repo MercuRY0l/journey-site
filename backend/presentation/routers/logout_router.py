@@ -64,8 +64,18 @@ async def logout(response: Response, request: Request,  service=Depends(get_logo
         response.delete_cookie(key="refresh_token", 
                                path="/",
                                httponly=True,
-                               secure=False,
+                               secure=True,
                                samesite="Lax") 
+        
+        
+        response.delete_cookie(
+            key='access_token',
+            path='/',
+            httponly=True,
+            secure=True,
+            samesite='lax'
+        )
+        
         
         response = JSONResponse({"status" : "success" , "message" : "Пользователь успешно вышел из аккаунта"})
         return response
