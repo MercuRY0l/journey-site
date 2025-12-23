@@ -53,13 +53,20 @@ $(document).ready(function()
                 <div id="wb_Text3">
                     <span style="color:#EEB519;font-family:Arial;font-size:19px;"><strong>Охота</strong></span>
                 </div>
-                <div id="wb_Text1">
-                    <p>Карелия — это не только бескрайние леса и чистейшие озёра, но и уникальная возможность испытать свои охотничьи навыки в удивительной природе. Мы предлагаем безопасные, комфортные и насыщенные впечатления для охотников любого уровня.</p>
-                    <p><strong>Охота на крупного и мелкого зверя:</strong> Лось, кабан, медведь — для опытных охотников, готовых к настоящему вызову. Косуля, заяц, лиса — отличная возможность для тех, кто хочет совместить отдых с активной охотой.</p>
-                    <p><strong>Птицеловство:</strong> Охота на утку, гуся, рябчика и других диких птиц.</p>
-                    <p><strong>Обучение и сопровождение для новичков.</strong></p>
+                <div id="wb_Text1" >
+                    Карелия — это не только бескрайние леса и чистейшие озёра,<br>
+                    но и уникальная возможность испытать свои охотничьи навыки<br>
+                    в удивительной природе. Мы предлагаем безопасные,<br>
+                    комфортные и насыщенные впечатления для охотников любого уровня.<br>
+                    <strong>Охота на крупного и мелкого зверя:</strong> Лось, кабан, медведь —<br>
+                    для опытных охотников, готовых к настоящему вызову.<br>
+                    Косуля, заяц, лиса — отличная возможность для тех, кто хочет совместить отдых с активной охотой.<br>
+                    
+                </div>
+                <div id="btn_container">
                     <button class="openModalBtn">Забронировать</button>
                 </div>
+
             </div>
         </div>
         <div class="col-2">
@@ -131,13 +138,20 @@ $(document).ready(function()
           <li role="menuitem"><a href="./contacts" class="nav-link">Контакты</a></li>
         </ul>
       </div>
-    </div>
+    </div> 
     
   
   
-    <div class="col-2">
-      <span id="userGreeting" style="color:#fff; margin-right:10px;"></span>
-      <a id="auth_btn" href="./auth/register" style="display:inline-block;padding:10px 20px;z-index:8;">Войти / Зарегистрироваться</a>
+  <div class="col-2">
+  <div class="user-menu-wrapper" style="position: relative; display: inline-block;">
+    <span id="userGreeting" style="color:#fff; cursor: pointer; margin-right:10px;"></span>
+
+    <div id="userMenu" class="user-menu">
+      <a href="/user/settings">Настройки</a>
+      <a href="#" id="logoutLink">Выйти</a>
     </div>
   </div>
+
+  <a id="auth_btn" href="./auth/register" style="display:inline-block;padding:10px 20px;z-index:8;">Войти / Зарегистрироваться</a>
 </div>
+

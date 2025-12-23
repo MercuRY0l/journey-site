@@ -829,3 +829,64 @@ body
 #ResponsiveMenu1-submenu-0 {
   display: none;
 }
+
+.col-2 {
+    display: flex-end;;
+    align-items: center;
+    padding-right: 30px;
+    
+}
+
+
+.user-menu-wrapper {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center; 
+    padding: 6px 12px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.user-menu-wrapper:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.user-menu {
+    position: absolute;
+    top: 110%;
+    left: 0;
+    
+    background-color: #222;
+    border-radius: 6px;
+    min-width: 160px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden; 
+    transform: translateY(-5px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s linear 0.3s;
+    z-index: 1000;
+}
+
+.user-menu-wrapper:hover .user-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition-delay: 0s; 
+}
+
+.user-menu a {
+    display: block;
+    padding: 10px 15px;
+    color: #fff;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.user-menu a:hover {
+    background-color: #444;
+}
+

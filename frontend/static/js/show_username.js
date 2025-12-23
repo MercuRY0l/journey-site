@@ -1,43 +1,40 @@
 document.addEventListener("DOMContentLoaded", () => {
     const userGreeting = document.getElementById("userGreeting");
     const loginButton = document.getElementById("auth_btn");
+    const userWrapper = document.querySelector(".user-menu-wrapper");
 
     const username = localStorage.getItem("username");
 
     if (username) {
         userGreeting.textContent = username;
-        loginButton.textContent = "Выйти";
+        userWrapper.style.display = "inline-flex";
+        loginButton.style.display = "none";       
 
-        loginButton.removeAttribute("href"); 
-        loginButton.addEventListener("click", (e) => {
-            e.preventDefault();
-
-            fetch("/auth/logout", {
-                method: "POST",
-                credentials: "include"
-            })
-            .then(response => {
-                if (response.ok) {
-                    showToast(message="Успешный выход пользователя из аккаунта!")
-                    localStorage.removeItem("username");
-                    userGreeting.textContent = "";
-                    loginButton.textContent = "Войти / зарегистрироваться";
-                    loginButton.href = "/auth/login";
-                    window.location.href = "/";
-                } else {
-                    showToast(message="Ошибка при выходе")
-                    alert("Ошибка при выходе");
-                }
-            })
-            .catch(() => alert("Ошибка соединения с сервером"));
-        });
     } else {
-        userGreeting.textContent = "";
-        loginButton.textContent = "Войти / зарегистрироваться";
-        loginButton.href = "/auth/login";
+        
+        userWrapper.style.display = "none";        
+        loginButton.style.display = "inline-block"; 
+    }
+
+    const logoutLink = document.getElementById("logoutLink");
+    if (logoutLink) {
+        logoutLink.addEventListener("click", (e) => {
+            e.preventDefault();
+            fetch("/auth/logout", { method: "POST", credentials: "include" })
+                .then(res => {
+                    if (res.ok) {
+                        localStorage.removeItem("username");
+                        userWrapper.style.display = "none";       
+                        loginButton.style.display = "inline-block"; 
+                        window.location.href = "/";
+                    } else {
+                        alert("Ошибка при выходе");
+                    }
+                })
+                .catch(() => alert("Ошибка соединения"));
+        });
     }
 });
-
 
 function showToast(message, type="success") {
   const toast = document.createElement("div");

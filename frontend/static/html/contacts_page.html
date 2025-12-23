@@ -6,28 +6,26 @@
 <title>Контакты | Wild Karelia</title>
 <link href="/static/css/contacts.css" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="/static/js/show_username.js"></script>
 <style>
 </style>
 </head>
 <body>
 
 
-  
-
-
-
 <div id="wb_header">
-  <div id="header">
+  <header id="header">
+    <!-- Левая колонка: логотип и меню -->
     <div class="col-1">
-      <div id="wb_Image3" style="display:inline-block;width:93px;height:93px;z-index:5;">
+      <div id="wb_Image3" style="display:inline-block; width:93px; height:93px; z-index:5;">
         <a href="./">
-          <img src="/static/images/logo_img.png" id="Image3" alt="" width="93" height="93">
+          <img src="/static/images/logo_img.png" id="Image3" alt="Логотип" width="93" height="93">
         </a>
       </div>
 
-      <div id="wb_ResponsiveMenu1" style="display:flex;align-items:center;z-index:6;">
+      <nav id="wb_ResponsiveMenu1" style="display:flex; align-items:center; z-index:6;">
         <label class="toggle" for="ResponsiveMenu1-submenu" id="ResponsiveMenu1-title">
-          Menu
+          Меню
           <span id="ResponsiveMenu1-icon">
             <span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span>
           </span>
@@ -36,9 +34,7 @@
         <input type="checkbox" id="ResponsiveMenu1-submenu">
 
         <ul class="ResponsiveMenu1" id="ResponsiveMenu1" role="menu">
-          <li role="menuitem">
-            <a href="./" class="nav-link">Главная</a>
-          </li>
+          <li role="menuitem"><a href="./" class="nav-link">Главная</a></li>
 
           <li role="menuitem">
             <label for="ResponsiveMenu1-submenu-0" class="toggle">
@@ -57,19 +53,25 @@
           <li role="menuitem"><a href="./about" class="nav-link">О нас</a></li>
           <li role="menuitem"><a href="./contacts" class="nav-link">Контакты</a></li>
         </ul>
+      </nav>
+    </div>
+
+   
+    <div class="col-2" style="position: relative; display: flex; align-items: center; ">
+      <div class="user-menu-wrapper">
+        <span id="userGreeting" style="color:#fff; cursor: pointer;">Привет, Пользователь!</span>
+        <div id="userMenu" class="user-menu">
+          <a href="/user/settings">Настройки</a>
+          <a href="#" id="logoutLink">Выйти</a>
+        </div>
       </div>
+
+      <a id="auth_btn" href="./auth/register" style="display:inline-block; padding:10px 20px; z-index:8;">Войти / Зарегистрироваться</a>
     </div>
-    
-  
-  
-    <div class="col-2">
-      <span id="userGreeting" style="color:#fff; margin-right:10px;"></span>
-      <a id="auth_btn" href="./auth/register" style="display:inline-block;padding:10px 20px;z-index:8;">Войти / Зарегистрироваться</a>
-    </div>
-  </div>
+  </header>
 </div>
 
-<script src="/static/js/show_username.js"></script>
+
 
 
 <div class="contact-container" id="wb_contacts_main_page">

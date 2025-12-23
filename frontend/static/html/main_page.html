@@ -8,6 +8,8 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> 
 <link href="/static/css/main_page.css" rel="stylesheet">
+<script src="/static/js/show_username.js"></script>
+
 
 
 <script>
@@ -91,6 +93,7 @@ $(document).ready(function()
 <br>
 <p>Мы заботимся о комфорте и безопасности наших гостей, предлагая тщательно продуманные маршруты, опытных гидов и индивидуальный подход к каждому путешествию. Независимо от того, ищете ли вы спокойную рыбалку на кристально чистых озёрах, захватывающую охоту или активный отдых на природе, мы сделаем ваше пребывание в Карелии незабываемым.</p>
 </div>
+<a id="Button_contacts" href="./about" style="display:inline-block;width:141px;height:37px;z-index:7;">Узнать больше</a>
 </div>
 <div class="col-2">
 <div id="wb_Image4" style="display:block;width:100%;height:auto;z-index:3;">
@@ -217,13 +220,20 @@ $(document).ready(function()
   
   
     <div class="col-2">
-      <span id="userGreeting" style="color:#fff; margin-right:10px;"></span>
-      <a id="auth_btn" href="./auth/register" style="display:inline-block;padding:10px 20px;z-index:8;">Войти / Зарегистрироваться</a>
+  <div class="user-menu-wrapper" style="position: relative; display: inline-block;">
+    <span id="userGreeting" style="color:#fff; cursor: pointer; margin-right:10px;"></span>
+
+    <div id="userMenu" class="user-menu">
+      <a href="/user/settings">Настройки</a>
+      <a href="#" id="logoutLink">Выйти</a>
     </div>
   </div>
+
+  <a id="auth_btn" href="./auth/register" style="display:inline-block;padding:10px 20px;z-index:8;">Войти / Зарегистрироваться</a>
 </div>
 
-<script src="/static/js/show_username.js"></script>
+
+
 
 
 </body>

@@ -1,0 +1,76 @@
+
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Настройки профиля</title>
+  <link rel="stylesheet" href="/static/css/user_settings.css">
+</head>
+<body>
+
+<div class="page">
+
+  <a href="../" class="back-button" title="На главную">←</a>
+
+  <h1>Настройки профиля</h1>
+
+ 
+  <div class="setting-card">
+    <div class="card-header">
+      <div>
+        <span class="label">Логин</span>
+        <span class="value">username123</span>
+      </div>
+      <button class="edit-btn" data-target="username">Изменить</button>
+    </div>
+
+    <form class="edit-form" id="username">
+      <input type="text" placeholder="Новый логин">
+      <button type="submit">Сохранить</button>
+    </form>
+  </div>
+
+  
+  <div class="setting-card">
+    <div class="card-header">
+      <div>
+        <span class="label">Email</span>
+        <span class="value">user@mail.com</span>
+      </div>
+      <button class="edit-btn" data-target="email">Изменить</button>
+    </div>
+
+    <form class="edit-form" id="email">
+      <input type="email" placeholder="Новый email">
+      <button type="submit">Отправить подтверждение</button>
+      <small>На новую почту придёт письмо для подтверждения</small>
+    </form>
+  </div>
+
+  
+  <div class="setting-card">
+    <div class="card-header">
+      <div>
+        <span class="label">Пароль</span>
+        <span class="value">••••••••</span>
+      </div>
+      <button class="edit-btn" data-target="password">Изменить</button>
+    </div>
+
+    <form class="edit-form" id="password">
+      <input type="password" placeholder="Текущий пароль">
+      <input type="password" placeholder="Новый пароль">
+      <input type="password" placeholder="Повторите пароль">
+      <button type="submit">Обновить пароль</button>
+    </form>
+  </div>
+
+</div>
+
+<script src="/static/js/settings.js"></script>
+</body>
+</html>
+
+
+
