@@ -1,0 +1,892 @@
+
+html,body{
+   height: 100%;
+   margin: 0;
+   padding: 0;
+}
+
+body
+{
+   background-color: #FFFFFF;
+   color: #1B262C;
+   font-family: Arial;
+   font-weight: normal;
+   font-size: 16px;
+   line-height: 1.1875;
+   margin: 0;
+   padding: 0;
+}
+
+
+#teamLayoutGrid, #teamCardContainer {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#wb_teamLayoutGrid
+{
+   clear: both;
+   position: relative;
+   table-layout: fixed;
+   display: table;
+   text-align: center;
+   width: 100%;
+   background-color: #1B262C;
+   background-image: none;
+   border: 0px solid #CCCCCC;
+   border-radius: 0px;
+   box-sizing: border-box;
+   margin: 0;
+}
+#teamLayoutGrid
+{
+   box-sizing: border-box;
+   padding: 150px 15px 50px 15px;
+   margin-right: auto;
+   margin-left: auto;
+   max-width: 1140px;
+}
+#teamLayoutGrid > .row
+{
+   margin-right: -15px;
+   margin-left: -15px;
+}
+#teamLayoutGrid > .row > .col-1
+{
+   box-sizing: border-box;
+   font-size: 0;
+   min-height: 1px;
+   padding-right: 15px;
+   padding-left: 15px;
+   position: relative;
+}
+#teamLayoutGrid > .row > .col-1
+{
+   float: left;
+}
+#teamLayoutGrid > .row > .col-1
+{
+   background-color: transparent;
+   background-image: none;
+   border: 0px solid #FFFFFF;
+   border-radius: 0px;
+   width: 100%;
+   text-align: center;
+}
+#teamLayoutGrid:before,
+#teamLayoutGrid:after,
+#teamLayoutGrid .row:before,
+#teamLayoutGrid .row:after
+{
+   display: table;
+   content: " ";
+}
+#teamLayoutGrid:after,
+#teamLayoutGrid .row:after
+{
+   clear: both;
+}
+@media (max-width: 480px)
+{
+#teamLayoutGrid > .row > .col-1
+{
+   float: none;
+   width: 100% !important;
+}
+}
+#wb_teamHeading
+{
+   background-color: transparent;
+   background-image: none;
+   border: 0px solid #FFFFFF;
+   border-radius: 0px;
+   box-sizing: border-box;
+   vertical-align: top;
+   margin: 0 0 10px 0 ;
+   padding: 0;
+   text-align: center;
+}
+#teamHeading
+{
+   color: #FFFFFF;
+   font-family: "Open Sans";
+   font-weight: 700;
+   font-style: normal;
+   font-size: 48px;
+   margin: 0;
+   text-align: center;
+   text-transform: none;
+}
+#wb_teamText 
+{
+   background-color: transparent;
+   background-image: none;
+   border: 0px solid #FF7F00;
+   border-radius: 0px;
+   padding: 0;
+   margin: 0;
+   text-align: center;
+}
+#wb_teamText
+{
+   color: #FFFFFF;
+   font-family: "Open Sans";
+   font-weight: 400;
+   font-size: 16px;
+   line-height: 23px;
+}
+#wb_teamText p, #wb_teamText ul
+{
+   margin: 0;
+   padding: 0;
+}
+#wb_teamText
+{
+   display: block;
+   margin: 0;
+   box-sizing: border-box;
+   width: 100%;
+}
+#wb_teamCardContainer
+{
+   background-color: #1B262C;
+   background-image: none;
+   border: 0px solid #CCCCCC;
+   border-radius: 0px;
+   box-sizing: border-box;
+   position: relative;
+   width: 100%;
+}
+#teamCardContainer
+{
+   display: flex;
+   position: relative;
+   padding: 0 0 70px 0;
+   flex-direction: row;
+   flex-wrap: wrap;
+   justify-content: flex-start;
+   align-items: stretch;
+   align-content: flex-start;
+   margin-top: 0px;
+   margin-bottom: 0px;
+   margin-right: auto;
+   margin-left: auto;
+   max-width: 1140px;
+   box-sizing: border-box;
+   font-size: 0;
+}
+@media all and (max-width:768px) 
+{
+#teamCardContainer
+{
+   flex-direction: column;
+   flex-wrap: nowrap;
+}
+}
+#wb_teamCard1
+{
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   flex-grow: 1;
+   flex-shrink: 1;
+   flex-basis: 0%;
+   align-self: auto;
+   box-sizing: border-box;
+   margin: 15px 15px 15px 15px;
+   background-color: #313647;
+   background-image: none;
+   border: 4px solid #EEB519;
+   border-radius: 10px;
+   text-align: center;
+}
+#teamCard1-card-body
+{
+   padding: 10px 10px 30px 10px;
+   flex: 1 1 auto;
+   font-size: 0;
+}
+#teamCard1-card-item0
+{
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+   border: 1px solid transparent;
+   border-radius: 10px;
+   max-width: 300px;
+   margin-left: auto;
+   margin-right: auto;
+   width: 100%;
+   height: 200px;
+}
+#teamCard1-card-item1
+{
+   box-sizing: border-box;
+   margin: 15px 0 0 0 ;
+   padding: 0;
+}
+#teamCard1-card-item1 h1
+{
+   color: #FFFFFF;
+   font-family: "Open Sans";
+   font-weight: bold;
+   font-style: normal;
+   font-size: 24px;
+   margin: 0;
+}
+#teamCard1-card-item2
+{
+   box-sizing: border-box;
+   margin: 10px 30px 30px 30px;
+   padding: 0;
+}
+#teamCard1-card-item2 h1
+{
+   color: #FFFFFF;
+   font-family: "Open Sans";
+   font-weight: bold;
+   font-style: normal;
+   font-size: 19px;
+   margin: 0;
+}
+#teamCard1-card-item3
+{
+   box-sizing: border-box;
+   border-radius: 0 0 10px 10px !important;
+   margin: 0;
+   padding: 0;
+   color: #FFFFFF;
+   font-family: Arial;
+   font-weight: normal;
+   font-style: normal;
+   font-size: 20px;
+}
+#wb_teamCard2
+{
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   flex-grow: 1;
+   flex-shrink: 1;
+   flex-basis: 0%;
+   align-self: auto;
+   box-sizing: border-box;
+   margin: 15px 15px 15px 15px;
+   background-color: #313647;
+   background-image: none;
+   border: 4px solid #EEB519;
+   border-radius: 10px;
+   text-align: center;
+}
+#teamCard2-card-body
+{
+   padding: 10px 10px 30px 10px;
+   flex: 1 1 auto;
+   font-size: 0;
+}
+#teamCard2-card-item0
+{
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+   border: 1px solid transparent;
+   border-radius: 10px;
+   max-width: 300px;
+   margin-left: auto;
+   margin-right: auto;
+   width: 100%;
+   height: 200px;
+}
+#teamCard2-card-item1
+{
+   box-sizing: border-box;
+   margin: 15px 0 0 0 ;
+   padding: 0;
+}
+#teamCard2-card-item1 h1
+{
+   color: #FFFFFF;
+   font-family: "Open Sans";
+   font-weight: bold;
+   font-style: normal;
+   font-size: 24px;
+   margin: 0;
+}
+#teamCard2-card-item2
+{
+   box-sizing: border-box;
+   margin: 15px 30px 30px 30px;
+   padding: 0;
+}
+#teamCard2-card-item2 h1
+{
+   color: #FFFFFF;
+   font-family: "Open Sans";
+   font-weight: bold;
+   font-style: normal;
+   font-size: 19px;
+   margin: 0;
+}
+#teamCard2-card-item3
+{
+   box-sizing: border-box;
+   border-radius: 0 0 10px 10px !important;
+   margin: 0;
+   padding: 0;
+   color: #FFFFFF;
+   font-family: Arial;
+   font-weight: normal;
+   font-style: normal;
+   font-size: 20px;
+}
+#wb_teamCard3
+{
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   flex-grow: 1;
+   flex-shrink: 1;
+   flex-basis: 0%;
+   align-self: auto;
+   box-sizing: border-box;
+   margin: 15px 15px 15px 15px;
+   background-color: #313647;
+   background-image: none;
+   border: 4px solid #EEB519;
+   border-radius: 10px;
+   text-align: center;
+}
+#teamCard3-card-body
+{
+   padding: 10px 10px 30px 10px;
+   flex: 1 1 auto;
+   font-size: 0;
+}
+#teamCard3-card-item0
+{
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+   border: 1px solid transparent;
+   border-radius: 10px;
+   max-width: 300px;
+   margin-left: auto;
+   margin-right: auto;
+   width: 100%;
+   height: 200px;
+}
+#teamCard3-card-item1
+{
+   box-sizing: border-box;
+   margin: 15px 0 0 0 ;
+   padding: 0;
+}
+#teamCard3-card-item1 h1
+{
+   color: #FFFFFF;
+   font-family: "Open Sans";
+   font-weight: bold;
+   font-style: normal;
+   font-size: 24px;
+   margin: 0;
+}
+#teamCard3-card-item2
+{
+   box-sizing: border-box;
+   margin: 15px 30px 30px 30px;
+   padding: 0;
+}
+#teamCard3-card-item2 h1
+{
+   color: #FFFFFF;
+   font-family: "Open Sans";
+   font-weight: bold;
+   font-style: normal;
+   font-size: 19px;
+   margin: 0;
+}
+#teamCard3-card-item3
+{
+   box-sizing: border-box;
+   border-radius: 0 0 10px 10px !important;
+   margin: 10px 0 0 0 ;
+   padding: 0;
+   color: #FFFFFF;
+   font-family: Arial;
+   font-weight: normal;
+   font-style: normal;
+   font-size: 20px;
+}
+
+#wb_Image3
+{
+   margin: 0;
+   vertical-align: top;
+}
+#Image3
+{
+   border: 0px solid #000000;
+   border-radius: 0px;
+   box-sizing: border-box;
+   padding: 0;
+   display: inline-block;
+   width: 93px;
+   height: 93px;
+   vertical-align: top;
+}
+#wb_LayoutGrid3
+{
+   clear: both;
+   position: relative;
+   table-layout: fixed;
+   display: table;
+   text-align: center;
+   width: 100%;
+   background-color: transparent;
+   background-image: none;
+   border: 0px solid #DEE2E6;
+   border-radius: 0px;
+   box-sizing: border-box;
+   margin: 0;
+}
+#LayoutGrid3
+{
+   box-sizing: border-box;
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   padding: 0;
+   margin-right: auto;
+   margin-left: auto;
+}
+#LayoutGrid3 > .col-1, #LayoutGrid3 > .col-2
+{
+   box-sizing: border-box;
+   font-size: 0;
+   min-height: 1px;
+   padding-right: 15px;
+   padding-left: 15px;
+   position: relative;
+}
+#LayoutGrid3 > .col-1, #LayoutGrid3 > .col-2
+{
+   flex: 0 0 auto;
+}
+#LayoutGrid3 > .col-1
+{
+   background-color: transparent;
+   background-image: none;
+   border: 0px solid #FFFFFF;
+   border-radius: 0px;
+   flex-basis: 50%;
+   max-width: 50%;
+   display: flex;
+   flex-wrap: wrap;
+   align-content: center;
+   align-self: stretch;
+   align-items: center;
+   justify-content: center;
+   text-align: center;
+}
+#LayoutGrid3 > .col-2
+{
+   background-color: transparent;
+   background-image: none;
+   border: 0px solid #FFFFFF;
+   border-radius: 0px;
+   flex-basis: 50%;
+   max-width: 50%;
+   display: flex;
+   flex-wrap: wrap;
+   align-content: center;
+   align-self: stretch;
+   align-items: center;
+   justify-content: center;
+   text-align: center;
+}
+@media (max-width: 480px)
+{
+#LayoutGrid3 > .col-1, #LayoutGrid3 > .col-2
+{
+   flex-basis: 100% !important;
+   max-width: 100% !important;
+}
+}
+#wb_LayoutGrid4
+{
+   clear: both;
+   position: relative;
+   table-layout: fixed;
+   display: table;
+   text-align: center;
+   width: 100%;
+   background-color: transparent;
+   background-image: none;
+   border: 0px solid #DEE2E6;
+   border-radius: 0px;
+   box-sizing: border-box;
+   margin: 0;
+}
+#LayoutGrid4
+{
+   box-sizing: border-box;
+   width: 100%;
+   padding: 0 15px 0 15px;
+   margin-right: auto;
+   margin-left: auto;
+}
+#LayoutGrid4 > .row
+{
+   display: grid;
+   grid-template-columns: repeat(12, 8.333333%);
+   margin-right: -15px;
+   margin-left: -15px;
+}
+#LayoutGrid4 > .row > .col-1, #LayoutGrid4 > .row > .col-2
+{
+   box-sizing: border-box;
+   font-size: 0;
+   min-height: 1px;
+   padding-right: 15px;
+   padding-left: 15px;
+   position: relative;
+   grid-column: span 12;
+}
+#LayoutGrid4 > .row > .col-1, #LayoutGrid4 > .row > .col-2
+{
+}
+#LayoutGrid4 > .row > .col-1
+{
+   background-color: transparent;
+   background-image: none;
+   border: 0px solid #FFFFFF;
+   border-radius: 0px;
+   grid-column: span 4;
+   flex-wrap: wrap;
+   align-content: center;
+   align-self: stretch;
+   align-items: center;
+   text-align: right;
+}
+#LayoutGrid4 > .row > .col-2
+{
+   background-color: transparent;
+   background-image: none;
+   border: 0px solid #FFFFFF;
+   border-radius: 0px;
+   grid-column: span 8;
+   flex-wrap: wrap;
+   align-content: center;
+   align-self: stretch;
+   align-items: center;
+   text-align: left;
+}
+@media (max-width: 480px)
+{
+#LayoutGrid4 > .row > .col-1, #LayoutGrid4 > .row > .col-2
+{
+   width: 100%;
+   grid-column: span 12;
+}
+}
+#wb_Icon1
+{
+   background-color: transparent;
+   background-image: none;
+   border: 0px solid #245580;
+   border-radius: 0px;
+   text-align: center;
+   margin: 0;
+   padding: 0;
+   vertical-align: top;
+   display:inline-block;
+   position:relative;
+}
+#Icon1
+{
+   height: 24px;
+   width: 31px;
+   display: flex;
+   flex-wrap: nowrap;
+   justify-content: center;
+}
+.Icon1
+{
+   position: relative;
+   left: 0;
+   top: 0;
+   display: inline-block;
+   font-family: "Material Icons";
+   font-weight: normal;
+   font-style: normal;
+   line-height: 1;
+}
+.Icon1:before
+{
+   content: "\e853";
+}
+#Icon1 i
+{
+   color: #FFFFFF;
+   display: inline-block;
+   font-size: 24px;
+   line-height: 24px;
+   vertical-align: middle;
+}
+#wb_Icon1:hover #Icon1 i
+{
+   color: #F27907;
+}
+
+#wb_header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  font-family: Verdana;
+  font-size: 15px;
+}
+
+#header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  height: 100px;
+  background-color: #1f2a3a;
+}
+
+
+#header > .col-1 {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+#header > .col-2 {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 20px;
+}
+
+
+#wb_Image3 img {
+  display: block;
+  max-height: 80px;
+  width: auto;
+}
+
+
+#wb_ResponsiveMenu1 {
+  display: flex;
+  align-items: center;
+}
+
+
+.ResponsiveMenu1 {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+.ResponsiveMenu1 > li {
+  position: relative;
+}
+
+
+.ResponsiveMenu1 a.nav-link {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px 15px;
+  display: block;
+  transition: background 0.3s;
+}
+
+.ResponsiveMenu1 a.nav-link:hover {
+  background-color: #EEB519;
+  border-radius: 6px;
+  color:#000
+}
+
+
+
+.ResponsiveMenu1 ul {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #27374D;
+  list-style: none;
+  padding: 10px 0;
+  margin: 0;
+  min-width: 160px;
+  display: none;
+  border-radius: 8px;
+  z-index: 9999;
+}
+
+.ResponsiveMenu1 ul li a {
+  padding: 10px 20px;
+  white-space: nowrap;
+}
+
+.ResponsiveMenu1 li:hover > ul {
+  display: block;
+}
+
+
+.toggle {
+  display: none;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 10px 15px;
+}
+
+#ResponsiveMenu1-icon span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #fff;
+  margin: 4px 0;
+}
+
+
+#auth_btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #ffffff65;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 6px;
+  transition: background 0.3s;
+}
+
+#auth_btn:hover {
+  background-color: #FFB300;
+  color: #000;
+}
+
+@media (max-width: 768px) {
+
+  #header {
+    flex-direction: column;
+    height: auto;
+    padding: 10px 20px;
+  }
+
+  #header > .col-1,
+  #header > .col-2 {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .toggle {
+    display: inline-block;
+  }
+
+  .ResponsiveMenu1 {
+    flex-direction: column;
+    display: none;
+    width: 100%;
+    background-color: #27374D;
+    margin-top: 10px;
+    border-radius: 10px;
+  }
+
+  .ResponsiveMenu1 > li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .ResponsiveMenu1 ul {
+    position: static;
+    display: none;
+    width: 100%;
+    background-color: #1f2a3a;
+  }
+
+  .ResponsiveMenu1 li:hover > ul {
+    display: none;
+  }
+
+  #ResponsiveMenu1-submenu:checked + .ResponsiveMenu1 {
+    display: flex;
+  }
+
+  #ResponsiveMenu1-submenu-0:checked + ul {
+    display: block;
+  }
+}
+
+#ResponsiveMenu1-submenu,
+#ResponsiveMenu1-submenu-0 {
+  display: none;
+}
+
+.col-2 {
+    display: flex-end;;
+    align-items: center;
+    padding-right: 30px;
+    
+}
+
+
+.user-menu-wrapper {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center; 
+    padding: 6px 12px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.user-menu-wrapper:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.user-menu {
+    position: absolute;
+    top: 110%;
+    left: 0;
+    
+    background-color: #222;
+    border-radius: 6px;
+    min-width: 160px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden; 
+    transform: translateY(-5px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s linear 0.3s;
+    z-index: 1000;
+}
+
+.user-menu-wrapper:hover .user-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition-delay: 0s; 
+}
+
+.user-menu a {
+    display: block;
+    padding: 10px 15px;
+    color: #fff;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.user-menu a:hover {
+    background-color: #444;
+}
+

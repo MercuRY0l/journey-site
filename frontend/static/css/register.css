@@ -1,0 +1,127 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+}
+
+@keyframes gradientAnimation {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+.auth-container {
+    width: 100%;
+    max-width: 450px;
+    padding: 40px;
+    background-color: rgba(20, 20, 20, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.auth-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.7);
+}
+
+.auth-container h2 {
+    margin-bottom: 30px;
+    color: #FFB300;
+    font-size: 28px;
+    font-weight: bold;
+    text-shadow: 0 0 10px #FFB300;
+}
+
+.auth-container input {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border: 1px solid #333;
+    border-radius: 10px;
+    background-color: #1a1a1a;
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.auth-container input:focus {
+    border-color: #FFB300;
+    box-shadow: 0 0 8px #FFB300;
+}
+
+.auth-container button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    background: linear-gradient(90deg, #FFB300, #FFA600);
+    color: #1a1a1a;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 179, 0, 0.5);
+    text-shadow: 0 0 5px rgba(255, 179, 0, 0.7);
+}
+
+.auth-container button:hover {
+    background: linear-gradient(90deg, #FFA600, #FFB300);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(255, 179, 0, 0.7);
+}
+
+.auth-container button:active {
+    transform: translateY(1px);
+    box-shadow: 0 3px 10px rgba(255, 179, 0, 0.6);
+}
+
+.reg-footer {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #aaa;
+}
+
+.reg-footer a {
+    color: #FFB300;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.reg-footer a:hover {
+    color: #FFA600;
+}
+
+.wb-theme-button {
+    width: 100%;
+    padding: 12px 0;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #FFB300, #FFA600);
+    color: #1a1a1a;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 179, 0, 0.5);
+    text-shadow: 0 0 5px rgba(255, 179, 0, 0.7);
+}
+
+.wb-theme-button:hover {
+    background: linear-gradient(90deg, #FFA600, #FFB300);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(255, 179, 0, 0.7);
+}
+
+.wb-theme-button:active {
+    transform: translateY(1px);
+    box-shadow: 0 3px 10px rgba(255, 179, 0, 0.6);
+}

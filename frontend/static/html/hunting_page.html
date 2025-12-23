@@ -1,0 +1,157 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Охота | Wild Karelia</title>
+<meta name="generator" content="WYSIWYG Web Builder 14 - http://www.wysiwygwebbuilder.com">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="/static/js/feed_back.js" defer></script>
+<script src="/static/js/show_username.js" defer></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="/static/css/hunting.css" rel="stylesheet">
+
+
+<script>
+$(document).ready(function()
+{
+   $("a[href*='#home']").click(function(event)
+   {
+      event.preventDefault();
+      $('html, body').stop().animate({ scrollTop: $('#wb_home').offset().top-88 }, 600, 'easeOutCirc');
+   });
+   $("a[href*='#reviews']").click(function(event)
+   {
+      event.preventDefault();
+      $('html, body').stop().animate({ scrollTop: $('#wb_reviews').offset().top-88 }, 600, 'easeOutCirc');
+   });
+   $("a[href*='#header']").click(function(event)
+   {
+      event.preventDefault();
+      $('html, body').stop().animate({ scrollTop: $('#wb_header').offset().top }, 600, 'easeOutCirc');
+   });
+});
+</script>
+</head>
+<body>
+<div id="wb_home">
+<div id="home">
+<div class="col-1">
+<div id="wb_homeText">
+<span style="color:#FFFFFF;font-family:'Arial Black';font-size:32px;line-height:36px;"><strong>Охота в Карелии</strong></span>
+</div>
+</div>
+</div>
+</div>
+
+<div id="wb_reviews">
+    <div id="reviews">
+        <div class="col-1">
+            <div class="col-1-padding">
+                <div id="wb_Text3">
+                    <span style="color:#EEB519;font-family:Arial;font-size:19px;"><strong>Охота</strong></span>
+                </div>
+                <div id="wb_Text1" >
+                    Карелия — это не только бескрайние леса и чистейшие озёра,<br>
+                    но и уникальная возможность испытать свои охотничьи навыки<br>
+                    в удивительной природе. Мы предлагаем безопасные,<br>
+                    комфортные и насыщенные впечатления для охотников любого уровня.<br>
+                    <strong>Охота на крупного и мелкого зверя:</strong> Лось, кабан, медведь —<br>
+                    для опытных охотников, готовых к настоящему вызову.<br>
+                    Косуля, заяц, лиса — отличная возможность для тех, кто хочет совместить отдых с активной охотой.<br>
+                    
+                </div>
+                <div id="btn_container">
+                    <button class="openModalBtn">Забронировать</button>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-2">
+            <div class="col-2-padding">
+                <div id="wb_Image1">
+                    <img src="/static/images/hunt_img2.jpg" id="Image1" alt="Охота в Карелии">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="modalOverlay" class="modal-overlay">
+  <div class="modal">
+    <h2>Обратная связь</h2>
+    <form id="feedbackForm">
+      <input type="text" name="name" placeholder="Ваше имя" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <textarea name="message" placeholder="Текст обращения" required></textarea>
+
+      <div class="modal-actions">
+        <button type="submit">Отправить</button>
+        <button type="button" id="closeModal">Отмена</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div id="wb_header">
+  <div id="header">
+    <div class="col-1">
+      <div id="wb_Image3" style="display:inline-block;width:93px;height:93px;z-index:5;">
+        <a href="./">
+          <img src="/static/images/logo_img.png" id="Image3" alt="" width="93" height="93">
+        </a>
+      </div>
+
+      <div id="wb_ResponsiveMenu1" style="display:flex;align-items:center;z-index:6;">
+        <label class="toggle" for="ResponsiveMenu1-submenu" id="ResponsiveMenu1-title">
+          Menu
+          <span id="ResponsiveMenu1-icon">
+            <span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span>
+          </span>
+        </label>
+
+        <input type="checkbox" id="ResponsiveMenu1-submenu">
+
+        <ul class="ResponsiveMenu1" id="ResponsiveMenu1" role="menu">
+          <li role="menuitem">
+            <a href="./" class="nav-link">Главная</a>
+          </li>
+
+          <li role="menuitem">
+            <label for="ResponsiveMenu1-submenu-0" class="toggle">
+              Услуги<span class="arrow-down"></span>
+            </label>
+            <a href="javascript:void(0)" class="nav-link">
+              Услуги<span class="arrow-down"></span>
+            </a>
+            <input type="checkbox" id="ResponsiveMenu1-submenu-0">
+            <ul role="menu">
+              <li role="menuitem"><a href="./fishing" class="nav-link">Рыбалка</a></li>
+              <li role="menuitem"><a href="./hunting" class="nav-link">Охота</a></li>
+            </ul>
+          </li>
+
+          <li role="menuitem"><a href="./about" class="nav-link">О нас</a></li>
+          <li role="menuitem"><a href="./contacts" class="nav-link">Контакты</a></li>
+        </ul>
+      </div>
+    </div> 
+    
+  
+  
+  <div class="col-2">
+  <div class="user-menu-wrapper" style="position: relative; display: inline-block;">
+    <span id="userGreeting" style="color:#fff; cursor: pointer; margin-right:10px;"></span>
+
+    <div id="userMenu" class="user-menu">
+      <a href="/user/settings">Настройки</a>
+      <a href="#" id="logoutLink">Выйти</a>
+    </div>
+  </div>
+
+  <a id="auth_btn" href="./auth/register" style="display:inline-block;padding:10px 20px;z-index:8;">Войти / Зарегистрироваться</a>
+</div>
+

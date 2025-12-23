@@ -1,0 +1,35 @@
+# Byte-code files
+*.pyc
+__pycache__/
+*.pyd
+*.so
+
+# Virtual environment
+/.env
+.venv/
+venv/
+env/
+/bin/
+/include/
+/lib/
+/share/
+
+# Editor/IDE specific files
+.vscode/
+.idea/
+*.sublime-workspace
+*.swp
+*.bak
+*.swo
+
+# Test related files
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Logs and temporary files
+*.log
+*.tmp
+*.sqlite3
+
+

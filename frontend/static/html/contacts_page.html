@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Контакты | Wild Karelia</title>
+<link href="/static/css/contacts.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="/static/js/show_username.js"></script>
+<style>
+</style>
+</head>
+<body>
+
+
+<div id="wb_header">
+  <header id="header">
+    <!-- Левая колонка: логотип и меню -->
+    <div class="col-1">
+      <div id="wb_Image3" style="display:inline-block; width:93px; height:93px; z-index:5;">
+        <a href="./">
+          <img src="/static/images/logo_img.png" id="Image3" alt="Логотип" width="93" height="93">
+        </a>
+      </div>
+
+      <nav id="wb_ResponsiveMenu1" style="display:flex; align-items:center; z-index:6;">
+        <label class="toggle" for="ResponsiveMenu1-submenu" id="ResponsiveMenu1-title">
+          Меню
+          <span id="ResponsiveMenu1-icon">
+            <span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span>
+          </span>
+        </label>
+
+        <input type="checkbox" id="ResponsiveMenu1-submenu">
+
+        <ul class="ResponsiveMenu1" id="ResponsiveMenu1" role="menu">
+          <li role="menuitem"><a href="./" class="nav-link">Главная</a></li>
+
+          <li role="menuitem">
+            <label for="ResponsiveMenu1-submenu-0" class="toggle">
+              Услуги<span class="arrow-down"></span>
+            </label>
+            <a href="javascript:void(0)" class="nav-link">
+              Услуги<span class="arrow-down"></span>
+            </a>
+            <input type="checkbox" id="ResponsiveMenu1-submenu-0">
+            <ul role="menu">
+              <li role="menuitem"><a href="./fishing" class="nav-link">Рыбалка</a></li>
+              <li role="menuitem"><a href="./hunting" class="nav-link">Охота</a></li>
+            </ul>
+          </li>
+
+          <li role="menuitem"><a href="./about" class="nav-link">О нас</a></li>
+          <li role="menuitem"><a href="./contacts" class="nav-link">Контакты</a></li>
+        </ul>
+      </nav>
+    </div>
+
+   
+    <div class="col-2" style="position: relative; display: flex; align-items: center; ">
+      <div class="user-menu-wrapper">
+        <span id="userGreeting" style="color:#fff; cursor: pointer;">Привет, Пользователь!</span>
+        <div id="userMenu" class="user-menu">
+          <a href="/user/settings">Настройки</a>
+          <a href="#" id="logoutLink">Выйти</a>
+        </div>
+      </div>
+
+      <a id="auth_btn" href="./auth/register" style="display:inline-block; padding:10px 20px; z-index:8;">Войти / Зарегистрироваться</a>
+    </div>
+  </header>
+</div>
+
+
+
+
+<div class="contact-container" id="wb_contacts_main_page">
+  <h1>Свяжитесь с нами!</h1>
+  <div class="contact-details">
+    <div class="contact-card">
+      <h3>Иван</h3>
+      <p>Менеджер Wild Karelia</p>
+      
+      <p><strong>Email:</strong> example@example.com</p>
+      <p><strong>Телефон:</strong> +7 999 039 133</p>
+      <div class="social-icons">
+        <a href="https://telegram.org/"><img src="/static/images/tg_icon.png" alt="Telegram"></a>
+        <a href="https://web.whatsapp.com/"><img src="/static/images/whatsapp_icon.png" alt="WhatsApp"></a>
+        <a href="https://vk.com/"><img src="/static/images/vk_icon.png" alt="VK"></a>
+      </div>
+    </div>
+    <div class="contact-card">
+      <h3>Адрес</h3>
+      <p>г. Петрозаводск, Республика Карелия</p>
+      <p>Рабочее время: Пн-Пт, 9:00 - 18:00</p>
+    </div>
+  </div>
+
+  <div id="map">
+    <iframe src="https://yandex.ru/map-widget/v1/?ll=34.352126%2C61.788775&mode=search&ol=geo&z=14.53" 
+      width="100%" height="400" frameborder="1" allowfullscreen="true"></iframe>
+  </div>
+</div>
+
+</body>
+</html>
