@@ -79,7 +79,7 @@ async def login_for_accsess_token(request : Request, data : LoginDTO, service = 
             path="/",
             value = tokens.refresh_token,
             httponly=True,
-            secure=True,
+            secure=False,
             samesite="lax"
         )
         
@@ -88,7 +88,7 @@ async def login_for_accsess_token(request : Request, data : LoginDTO, service = 
             path='/',
             value=tokens.access_token,
             httponly=True,
-            secure=True,
+            secure=False,
             samesite='lax'
         )
         

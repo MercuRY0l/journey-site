@@ -27,3 +27,18 @@ class IUserRepository(ABC):
     @abstractmethod
     async def get_user_by_user_id(self, user_id: int) -> str:
         pass
+    
+    
+    @abstractmethod
+    async def change_username(self, user_id: int, new_username: str) -> str:
+        pass
+    
+    @abstractmethod
+    async def change_email(self, user_id: int, new_email: str) -> str:
+        pass
+    
+    @abstractmethod
+    async def change_password(self, user_id: int, new_password : str) -> str:
+        pass
+    
+    

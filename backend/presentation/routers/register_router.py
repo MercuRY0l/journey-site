@@ -83,7 +83,7 @@ async def create_user(request : Request,
             key="refresh_token",
             path="/",
             value = tokens.refresh_token,
-            secure=True,
+            secure=False,
             httponly=True,
             samesite="Lax"
             
@@ -94,7 +94,7 @@ async def create_user(request : Request,
             path='/',
             value=tokens.access_token,
             httponly=True,
-            secure=True,
+            secure=False,
             samesite='lax'
         )
         

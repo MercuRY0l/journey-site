@@ -51,7 +51,6 @@ async def get_current_user(
 
     repo = UserRepository()
     user = await repo.get_user_by_user_id(user_id=user_id)
-    print(user)
     
     if not user:
         raise HTTPException(status_code=401)
