@@ -7,6 +7,7 @@ from domain.services.log_service import LogService
 from domain.models.log_domain_model import LogDomainModel
 
 from app.dto.user_settings_dto import ChangeUsername, ChangeEmail, ChangePassword
+from app.exceptions.settings_exceptions import UserNotFound, EmailAlreadyExists, UsernameAlreadyExists
 class SettingsService:
     def __init__(self, 
                  db_user_repo : IUserRepository, 
@@ -21,6 +22,12 @@ class SettingsService:
         
     async def change_username(self, username_dto : ChangeUsername, user_id : int, new_username: str):        
         try:
+            
+            user = await self.db_user_repo.get_user_by_user_id(user_id=user_id)
+            
+            if username_dto.new_username == user.username:
+                raise UsernameAlreadyExists()
+            
             await self.db_user_repo.change_username(user_id=user_id, new_username=new_username)
             await self.log_service.create_log(LogDomainModel(event_type="ChangeUsername", 
                                                          username=new_username, 
@@ -41,6 +48,12 @@ class SettingsService:
         
     async def change_email(self, email_dto : ChangeEmail, user_id : int, new_email: str):
         try:
+            
+            user = await self.db_user_repo.get_user_by_email(email_dto.new_email)
+            
+            if email_dto.new_email == user.email:
+                raise EmailAlreadyExists()
+            
             await self.db_user_repo.change_email(user_id=user_id, new_email=new_email)
             await self.log_service.create_log(LogDomainModel(event_type="ChangeEmail", 
                                                          username=None, 
@@ -63,11 +76,11 @@ class SettingsService:
         
         user = await self.db_user_repo.get_user_by_user_id(user_id=user_id)
         
-        # if not user: #TODO доделать проверку
-        #     raise UserNotFound()
+        if not user:
+            raise UserNotFound()
         
         if not self.hash_pass_service.check(pass_dto.old_password, user.password):
-            raise ValueError("Пароли не совпадают!")
+            raise ValueError("Введен неверный текущий пароль!")
         
         try:
             new_password = self.hash_pass_service.hash(new_password)

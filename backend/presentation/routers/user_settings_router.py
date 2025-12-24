@@ -15,7 +15,7 @@ from infrastructure.services.brute_protection_service import BruteService
 from infrastructure.repositories.user_repo import UserRepository
 from infrastructure.repositories.log_repo import LogRepo
 
-from presentation.routers.other_routers import get_current_user
+from presentation.routers.deps import get_current_user
 
 user_setting_router = APIRouter()
 
