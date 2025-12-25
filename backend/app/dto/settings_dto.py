@@ -1,6 +1,6 @@
 
 
-from pydantic import BaseModel
+from pydantic import BaseModel, field_validator
 from typing import Optional
 
 class SettingsModel(BaseModel):
@@ -9,3 +9,4 @@ class SettingsModel(BaseModel):
     password1 : str | Optional[str]
     password2 : str | Optional[str]
     password2_repeat : str | Optional[str]
+    

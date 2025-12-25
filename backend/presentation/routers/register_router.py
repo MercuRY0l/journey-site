@@ -25,6 +25,8 @@ from infrastructure.repositories.log_repo import LogRepo
 
 from domain.services.log_service import LogService
 
+from pydantic import ValidationError
+
 regRouter = APIRouter()
 
 templates = Jinja2Templates(directory="C:/Users/udgit/Documents/site_project_fastapi/frontend/static/html")
@@ -44,7 +46,7 @@ def get_reg_service():
         brute_service=BruteService(),
         hash_pass_service=HashPassService(),
         hash_token_service = HashTokenService(),
-        jwt_service=JwtTokensService()
+        jwt_service=JwtTokensService() 
         
     )
 
@@ -70,9 +72,10 @@ async def create_user(request : Request,
         ip=client_host
     )
     
+    
     try:
         tokens = await service.register(reg_dto=reg_dto)
-    
+
         response = JSONResponse({
             "success": True,
             "username" : reg_dto.username,
@@ -100,6 +103,29 @@ async def create_user(request : Request,
         
         return response
     
+    except ValueError as e:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail=str(e)
+        )
+    
+    except ValidationError as ve:
+        errors = {}
+        for err in ve.errors():
+            field = err["loc"][0]
+            errors[field] = err["msg"]
+
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail=errors
+        )
+    
     except Exception as e:
-        traceback.print_exc()
-        raise HTTPException(status_code=500, detail=f"Ошибка при регистрации: {e}")
+        raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR)
+   
+    
+    
+    
+    
+    
+    

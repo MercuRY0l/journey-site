@@ -48,6 +48,9 @@ async def update_username(
     try:
         await service.change_username(data, user.id, data.new_username)
         return {"status": "success", "new_username": data.new_username}
+    except ValueError as e:
+        raise HTTPException(status_code=422, detail=str(e))
+    
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
 
@@ -60,6 +63,10 @@ async def update_email(
     try:
         await service.change_email(data, user.id, data.new_email)
         return {"status": "success", "new_email": data.new_email}
+    
+    except ValueError as e:
+        raise HTTPException(status_code=422, detail=str(e))
+    
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
 
@@ -72,5 +79,9 @@ async def update_password(
     try:
         await service.change_password(data, user.id, data.new_password)
         return {"status": "success"}
+    
+    except ValueError as e:
+        raise HTTPException(status_code=422, detail=str(e))
+    
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))

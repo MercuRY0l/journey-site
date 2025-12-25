@@ -1,5 +1,4 @@
 window.addEventListener("DOMContentLoaded", async () => {
-
   async function loadUserData() {
     try {
       const res = await fetch("/auth/me", { credentials: "include" });
@@ -10,11 +9,11 @@ window.addEventListener("DOMContentLoaded", async () => {
       if (valueSpans[1]) valueSpans[1].textContent = user.email;
     } catch (err) {
       console.error(err);
+      showToast("Ошибка загрузки данных пользователя", "failed");
     }
   }
 
   await loadUserData();
-
 
   document.querySelectorAll(".edit-btn").forEach(btn => {
     btn.addEventListener("click", () => {
@@ -25,7 +24,6 @@ window.addEventListener("DOMContentLoaded", async () => {
       targetForm.style.display = targetForm.style.display === "block" ? "none" : "block";
     });
   });
-
 
   const usernameForm = document.getElementById("username");
   usernameForm.addEventListener("submit", async (e) => {
@@ -41,22 +39,20 @@ window.addEventListener("DOMContentLoaded", async () => {
         body: JSON.stringify({ new_username: newUsername }),
         credentials: "include"
       });
-
       const result = await res.json();
       if (res.ok) {
         await loadUserData();
-        showToast("Логин обновлён");
+        showToast("Логин обновлён", "success");
         usernameForm.style.display = "none";
         input.value = "";
       } else {
-        showToast(result.detail || "Ошибка при обновлении логина", "failed");
+        handleErrors(result);
       }
     } catch (err) {
       showToast("Ошибка сети", "failed");
       console.error(err);
     }
   });
-
 
   const emailForm = document.getElementById("email");
   emailForm.addEventListener("submit", async (e) => {
@@ -72,22 +68,20 @@ window.addEventListener("DOMContentLoaded", async () => {
         body: JSON.stringify({ new_email: newEmail }),
         credentials: "include"
       });
-
       const result = await res.json();
       if (res.ok) {
         await loadUserData();
-        showToast("Письмо подтверждения отправлено");
+        showToast("Письмо подтверждения отправлено", "success");
         emailForm.style.display = "none";
         input.value = "";
       } else {
-        showToast(result.detail || "Ошибка при обновлении email", "failed");
+        handleErrors(result);
       }
     } catch (err) {
       showToast("Ошибка сети", "failed");
       console.error(err);
     }
   });
-
 
   const passwordForm = document.getElementById("password");
   passwordForm.addEventListener("submit", async (e) => {
@@ -96,7 +90,6 @@ window.addEventListener("DOMContentLoaded", async () => {
     const oldPassword = inputs[0].value.trim();
     const newPassword = inputs[1].value.trim();
     const repeatPassword = inputs[2].value.trim();
-
     if (!oldPassword || !newPassword || !repeatPassword)
       return showToast("Заполните все поля", "failed");
     if (newPassword !== repeatPassword)
@@ -109,14 +102,13 @@ window.addEventListener("DOMContentLoaded", async () => {
         body: JSON.stringify({ old_password: oldPassword, new_password: newPassword }),
         credentials: "include"
       });
-
       const result = await res.json();
       if (res.ok) {
-        showToast("Пароль обновлён");
+        showToast("Пароль обновлён", "success");
         passwordForm.reset();
         passwordForm.style.display = "none";
       } else {
-        showToast(result.detail || "Ошибка при обновлении пароля", "failed");
+        handleErrors(result);
       }
     } catch (err) {
       showToast("Ошибка сети", "failed");
@@ -125,6 +117,29 @@ window.addEventListener("DOMContentLoaded", async () => {
   });
 });
 
+function handleErrors(result) {
+  if (!result || !result.detail) {
+    showToast("Ошибка при обновлении", "failed");
+    return;
+  }
+  if (typeof result.detail === "string") {
+    showToast(result.detail, "failed");
+    return;
+  }
+  if (Array.isArray(result.detail)) {
+    result.detail.forEach(err => {
+      if (err.msg) showToast(err.msg, "failed");
+      else if (err.loc) showToast(`${err.loc.join(".")}: ${err.msg}`, "failed");
+      else showToast(JSON.stringify(err), "failed");
+    });
+    return;
+  }
+  if (typeof result.detail === "object") {
+    Object.entries(result.detail).forEach(([field, msg]) => showToast(`${field}: ${msg}`, "failed"));
+    return;
+  }
+  showToast(JSON.stringify(result.detail), "failed");
+}
 
 function showToast(message, type="success") {
   const toast = document.createElement("div");

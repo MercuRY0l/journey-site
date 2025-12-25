@@ -1,22 +1,26 @@
 
 
-from pydantic import BaseModel,StringConstraints
-
-from typing_extensions import Annotated
-
-Username = Annotated[
-    str,
-    StringConstraints(min_length=5, max_length=50)
-]
-
-
-Password = Annotated[
-    str,
-    StringConstraints(min_length=8, max_length=255)
-]
+from pydantic import BaseModel, field_validator
 
 class LoginDTO(BaseModel):
     
-    username: Username
-    password: Password
-        
+    username: str
+    password: str
+    
+    
+    @field_validator("username")
+    def username_validator(cls, v):
+        if len(v) < 5:
+            raise ValueError("Имя пользователя должно быть минимум 5 символов")
+        if len(v) > 50:
+            raise ValueError("Имя пользователя не должно превышать 50 символов")
+        return v
+            
+    @field_validator("password")
+    def password_validator(cls, v):
+        if len(v) < 8:
+            raise ValueError("Пароль должен быть минимум 8 символов")
+        if len(v) > 255:
+            raise ValueError("Пароль должен быть менее 255 символов")
+
+        return v

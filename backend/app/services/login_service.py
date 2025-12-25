@@ -19,7 +19,7 @@ from app.dto.login_dto import LoginDTO
 from app.dto.auth_tokens_dto import AuthTokensDTO
 from app.exceptions.login_exceptions import UserIsNotExists, WrongPassword
 
-
+from pydantic import ValidationError
 
 class LoginService:
     
@@ -41,11 +41,11 @@ class LoginService:
         self.log_service = log_service
         
     async def login(self, login_dto: LoginDTO):
-    
+        
         if await self.brute_service.is_blocked():
             await self.log_service.create_log(LogDomainModel(event_type="Login", username=login_dto.username , user_id=None, status="Failed", ip=login_dto.ip, reason="Неудачная попытка входа, IP заблокирован!"))
             raise ValueError("Слишком много попыток, попробуйте позже.")
-        
+    
         user = await self.db_user_service.get_user_by_username(login_dto.username)
         
         if not user:
