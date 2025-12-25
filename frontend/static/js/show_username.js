@@ -1,40 +1,48 @@
-document.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("DOMContentLoaded", async () => {
     const userGreeting = document.getElementById("userGreeting");
     const loginButton = document.getElementById("auth_btn");
     const userWrapper = document.querySelector(".user-menu-wrapper");
 
-    const username = localStorage.getItem("username");
+    async function loadUser() {
+        try {
+            const res = await fetch("/auth/me", { credentials: "include" });
+            if (!res.ok) throw new Error("Пользователь не авторизован");
+            const user = await res.json();
 
-    if (username) {
-        userGreeting.textContent = username;
-        userWrapper.style.display = "inline-flex";
-        loginButton.style.display = "none";       
-
-    } else {
-        
-        userWrapper.style.display = "none";        
-        loginButton.style.display = "inline-block"; 
+            
+            userGreeting.textContent = user.username;
+            userWrapper.style.display = "inline-flex";
+            loginButton.style.display = "none";
+        } catch (err) {
+            
+            userWrapper.style.display = "none";
+            loginButton.style.display = "inline-block";
+        }
     }
+
+    await loadUser();
 
     const logoutLink = document.getElementById("logoutLink");
     if (logoutLink) {
-        logoutLink.addEventListener("click", (e) => {
+        logoutLink.addEventListener("click", async (e) => {
             e.preventDefault();
-            fetch("/auth/logout", { method: "POST", credentials: "include" })
-                .then(res => {
-                    if (res.ok) {
-                        localStorage.removeItem("username");
-                        userWrapper.style.display = "none";       
-                        loginButton.style.display = "inline-block"; 
-                        window.location.href = "/";
-                    } else {
-                        alert("Ошибка при выходе");
-                    }
-                })
-                .catch(() => alert("Ошибка соединения"));
+            try {
+                const res = await fetch("/auth/logout", { method: "POST", credentials: "include" });
+                if (res.ok) {
+                    
+                    userWrapper.style.display = "none";
+                    loginButton.style.display = "inline-block";
+                    window.location.href = "/";
+                } else {
+                    showToast("Ошибка при выходе", "failed");
+                }
+            } catch {
+                showToast("Ошибка соединения", "failed");
+            }
         });
     }
 });
+
 
 function showToast(message, type="success") {
   const toast = document.createElement("div");

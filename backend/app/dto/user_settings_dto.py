@@ -1,18 +1,13 @@
-
-
-
-
 from pydantic import BaseModel, field_validator
 
+from typing import Optional
 
-class RegisterDTO(BaseModel):
+
+class ChangeUsername(BaseModel):
+    new_username: str
+    ip: Optional[str] = None
     
-    username : str
-    email : str
-    password : str
-    password_repeat : str
-    
-    @field_validator("username")
+    @field_validator("new_username")
     def username_validator(cls, v):
         if len(v) < 5:
             raise ValueError("Имя пользователя должно быть минимум 5 символов")
@@ -21,12 +16,22 @@ class RegisterDTO(BaseModel):
         return v
             
     
-    @field_validator("email")
+    
+class ChangeEmail(BaseModel):
+    new_email: str
+    ip: Optional[str] = None
+    
+    @field_validator("new_email")
     def email_validator(cls,v ):
         if len(v) > 255:
             raise ValueError("Email не должен превышать 255 символов!")
-        
-    @field_validator("password")
+    
+class ChangePassword(BaseModel):
+    old_password: str
+    new_password: str
+    ip: Optional[str] = None
+
+    @field_validator("old_password")
     def password_validator(cls, v):
         if len(v) < 8:
             raise ValueError("Пароль должен быть минимум 8 символов")
@@ -35,7 +40,8 @@ class RegisterDTO(BaseModel):
 
         return v
     
-    @field_validator("password_repeat")
+    
+    @field_validator("new_password")
     def password_validator2(cls, v):
         if len(v) < 8:
             raise ValueError("Пароль должен быть минимум 8 символов")
@@ -43,4 +49,5 @@ class RegisterDTO(BaseModel):
             raise ValueError("Пароль должен быть менее 255 символов")
 
         return v
+    
     

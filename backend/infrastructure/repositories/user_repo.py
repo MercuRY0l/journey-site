@@ -67,3 +67,45 @@ class UserRepository(IUserRepository):
             )
             await session.commit()
             return result.rowcount
+
+
+    async def change_username(self, user_id: int, new_username: str):
+        async with SessionLocal() as session:
+            stmt = select(UserModel).where(UserModel.id == user_id)
+            res = await session.execute(stmt)
+            
+            orm_user = res.scalars().first()
+            orm_user.username = new_username
+            
+            await session.commit()
+            await session.refresh(orm_user)
+            
+            return orm_to_domain(orm_user)
+    
+    
+    async def change_email(self, user_id: int , new_email: str):
+        async with SessionLocal() as session:
+            stmt = select(UserModel).where(UserModel.id == user_id)
+            res = await session.execute(stmt)
+           
+            orm_user = res.scalars().first()
+            orm_user.email = new_email
+            
+            await session.commit()
+            await session.refresh(orm_user)
+            
+            return orm_to_domain(orm_user)
+        
+
+    async def change_password(self, user_id: int, new_password : str):
+        async with SessionLocal() as session:
+            stmt = select(UserModel).where(UserModel.id == user_id)
+            res = await session.execute(stmt)
+            orm_user = res.scalars().first()
+            orm_user.password = new_password
+            
+            await session.commit()
+            await session.refresh(orm_user)
+            
+            return orm_to_domain(orm_user)
+    

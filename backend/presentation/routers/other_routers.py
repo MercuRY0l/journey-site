@@ -1,7 +1,11 @@
 
 from fastapi.templating import Jinja2Templates
-from fastapi import APIRouter, Request
+from fastapi import APIRouter, Request, Depends
 from fastapi.exceptions import HTTPException
+
+
+from presentation.routers.deps import get_current_user
+
 
 
 router = APIRouter()
@@ -28,10 +32,22 @@ async def root(request: Request):
 async def root(request: Request):
     return templates.TemplateResponse("contacts_page.html", {"request" : request})
 
+
 @router.get("/auth/me")
-async def root(request: Request):
-    token = request.cookies.get("refresh_token") or request.cookies.get("refresh")
+async def root(request: Request, user = Depends(get_current_user)):
+    token = request.cookies.get("access_token") or request.cookies.get("access")
     
     if not token:
         raise HTTPException(status_code=401)
-    return {"status": "ok"}
+    
+    
+    if not user:
+        raise HTTPException(status_code=401)
+    
+    return ({
+        
+        "username" : user.username,
+        "email" : user.email
+        
+    })        
+    
